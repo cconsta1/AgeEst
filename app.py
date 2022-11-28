@@ -8,8 +8,9 @@ import pickle
 import numpy as np
 
 app = Dash(__name__)
+server = app.server
 
-print("Every day malakia")
+
 
 test_model = pickle.load(open("./test_pipe_model_for_dash.dat", "rb"))
 
@@ -34,7 +35,7 @@ app.layout = html.Div(children=[
     ''', "hi"]),
 
     html.H1(children=['''
-    Yeah mother fucker
+    Yessss!!
     ''', 'hi ', test_model.predict(np.array([[1, 2, 2, 2, 2, 2]]))[0]]
     ),
 
