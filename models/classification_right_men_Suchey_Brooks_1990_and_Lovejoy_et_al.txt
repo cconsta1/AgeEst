@@ -1,0 +1,13 @@
+---------------------------------
+Suchey Brooks 1990 and Lovejoy et al
+Dataset size: 81 81
+Best classifier: {'learner': ExtraTreeClassifier(max_depth=3, max_features='log2', max_leaf_nodes=5,
+                    random_state=2, splitter='best'), 'preprocs': (Normalizer(norm='max'),), 'ex_preprocs': ()}
+
+Accuracy: 0.5714285714285714
+
+Confusion matrix: 
+[[ 2  0  3]
+ [ 1  0  3]
+ [ 0  2 10]]
+LOOCV accuracy: 0.6666666666666666

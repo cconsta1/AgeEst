@@ -1,0 +1,7 @@
+---------------------------------
+Suchey Brooks 1990
+Dataset size: 81 81
+Best classifier: {'learner': AdaBoostRegressor(learning_rate=0.0065890228415170895, loss='square',
+                  n_estimators=336, random_state=1), 'preprocs': (PCA(n_components=1),), 'ex_preprocs': ()}
+
+Accuracy: 0.14414059500555465

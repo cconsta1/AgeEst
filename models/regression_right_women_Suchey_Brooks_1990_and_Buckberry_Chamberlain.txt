@@ -1,0 +1,10 @@
+---------------------------------
+Suchey Brooks 1990 and Buckberry Chamberlain
+Dataset size: 59 59
+Best classifier: {'learner': GradientBoostingRegressor(alpha=0.8640181334856746,
+                          learning_rate=0.013319134151536915, max_depth=2,
+                          max_features='sqrt', min_impurity_decrease=0.05,
+                          min_samples_leaf=3, min_samples_split=3,
+                          n_estimators=567, random_state=4, verbose=False), 'preprocs': (PCA(n_components=6),), 'ex_preprocs': ()}
+
+Accuracy: 0.41975655196313233

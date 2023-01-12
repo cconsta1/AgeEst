@@ -1,0 +1,15 @@
+---------------------------------
+Buckberry and Chamberlain
+Dataset size: 59 59
+Best classifier: {'learner': GradientBoostingClassifier(criterion='squared_error',
+                           learning_rate=0.04586527461862267, max_depth=4,
+                           max_features=0.7769458247918755, n_estimators=206,
+                           random_state=0, verbose=False), 'preprocs': (Normalizer(),), 'ex_preprocs': ()}
+
+Accuracy: 0.6666666666666666
+
+Confusion matrix: 
+[[0 1 1]
+ [1 1 1]
+ [0 1 9]]
+LOOCV accuracy: 0.711864406779661

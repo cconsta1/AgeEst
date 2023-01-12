@@ -1,0 +1,7 @@
+
+
+---------------------------------
+Meindl and Lovejoy
+Dataset size: 81 81
+
+Accuracy: [378.2412109375, 0.0]

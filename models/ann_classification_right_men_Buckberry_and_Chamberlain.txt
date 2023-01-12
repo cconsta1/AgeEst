@@ -1,0 +1,12 @@
+
+
+---------------------------------
+Buckberry and Chamberlain
+Dataset size: 81 81
+
+Accuracy: [0.8393647074699402, 0.7142857313156128]
+
+Confusion matrix: 
+[[ 3  0  2]
+ [ 0  0  4]
+ [ 0  0 12]]

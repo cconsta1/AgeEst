@@ -1,0 +1,13 @@
+---------------------------------
+Suchey Brooks 1990 and Buckberry Chamberlain
+Dataset size: 59 59
+Best classifier: {'learner': ExtraTreeClassifier(criterion='entropy', max_depth=2, max_features=None,
+                    max_leaf_nodes=15, random_state=3, splitter='best'), 'preprocs': (MinMaxScaler(clip=True, feature_range=(-1.0, 1.0)),), 'ex_preprocs': ()}
+
+Accuracy: 0.7333333333333333
+
+Confusion matrix: 
+[[1 0 1]
+ [1 1 1]
+ [0 1 9]]
+LOOCV accuracy: 0.7796610169491526

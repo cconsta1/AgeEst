@@ -1,0 +1,18 @@
+---------------------------------
+All
+Dataset size: 81 81
+Best classifier: {'learner': XGBClassifier(colsample_bylevel=0.7852818633813121,
+              colsample_bytree=0.7600202611592543, gamma=0.0009535347424584973,
+              learning_rate=0.3872732616260458, max_depth=10,
+              min_child_weight=3, missing=nan, n_estimators=5600,
+              objective='multi:softprob', reg_alpha=0.13816404052896075,
+              reg_lambda=2.4565524660742133, seed=1,
+              subsample=0.9875998895701166, use_label_encoder=False), 'preprocs': (MinMaxScaler(feature_range=(-1.0, 1.0)),), 'ex_preprocs': ()}
+
+Accuracy: 0.6190476190476191
+
+Confusion matrix: 
+[[ 3  2  0]
+ [ 1  0  3]
+ [ 0  2 10]]
+LOOCV accuracy: 0.6296296296296297

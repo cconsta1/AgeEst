@@ -1,0 +1,13 @@
+---------------------------------
+All
+Dataset size: 59 59
+Best classifier: {'learner': AdaBoostClassifier(learning_rate=1.0537808023404156, n_estimators=96,
+                   random_state=1), 'preprocs': (StandardScaler(with_std=False),), 'ex_preprocs': ()}
+
+Accuracy: 0.8
+
+Confusion matrix: 
+[[2 0 0]
+ [0 1 2]
+ [0 1 9]]
+LOOCV accuracy: 0.6440677966101694

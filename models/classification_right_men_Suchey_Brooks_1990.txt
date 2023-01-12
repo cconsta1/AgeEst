@@ -1,0 +1,13 @@
+---------------------------------
+Suchey Brooks 1990
+Dataset size: 81 81
+Best classifier: {'learner': AdaBoostClassifier(algorithm='SAMME', learning_rate=0.0023074740865138507,
+                   n_estimators=819, random_state=3), 'preprocs': (StandardScaler(with_mean=False),), 'ex_preprocs': ()}
+
+Accuracy: 0.7619047619047619
+
+Confusion matrix: 
+[[ 4  0  1]
+ [ 2  0  2]
+ [ 0  0 12]]
+LOOCV accuracy: 0.7530864197530864

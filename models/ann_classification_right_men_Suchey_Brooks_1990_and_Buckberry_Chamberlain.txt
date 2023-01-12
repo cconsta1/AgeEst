@@ -1,0 +1,12 @@
+
+
+---------------------------------
+Suchey Brooks 1990 and Buckberry Chamberlain
+Dataset size: 81 81
+
+Accuracy: [0.6365774869918823, 0.8571428656578064]
+
+Confusion matrix: 
+[[ 5  0  0]
+ [ 0  1  3]
+ [ 0  0 12]]
