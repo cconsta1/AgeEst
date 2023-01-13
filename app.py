@@ -345,6 +345,8 @@ print("-------")
 print(list(vars["Suchey Brooks 1990 and Buckberry Chamberlain"]))
 
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
+app.title = "AgeEst"
+server = app.server
 
 app.layout = dbc.Container(
     [
