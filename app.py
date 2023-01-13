@@ -244,114 +244,10 @@ import numpy as np
 import plotly.graph_objs as go
 from dash import Input, Output, dcc, html
 
-app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
-
-app.layout = dbc.Container(
-    [
-        dcc.Store(id="store"),
-        html.H1("AgeEst, an age estimation web app"),
-        html.Hr(),
-        dbc.DropdownMenu(
-            label="Select input variable set",
-            menu_variant="dark",
-            id='select-input-variable-set',
-            children=[
-                dbc.DropdownMenuItem("Item 1"),
-                dbc.DropdownMenuItem("Item 2"),
-                dbc.DropdownMenuItem("Item 3"),
-            ],
-        ),
-        html.Br(),
-        # dbc.DropdownMenu(
-        #     # label="Select input variable set",
-        #     menu_variant="dark",
-        #     id='input-variables',
-        #     children=[]
-        # ),
-        dbc.RadioItems(
-            id="radio",
-            options=[
-                {"label": "Option 1", "value": "value1"},
-                {"label": "Option 2", "value": "value2"},
-                {"label": "Option 3", "value": "value3"}
-            ],
-            value="value1",
-            inline=True
-        ),
-        html.Hr(),
-        dbc.Button(
-            "Regenerate graphs",
-            color="primary",
-            id="button",
-            className="mb-3",
-        ),
-        dbc.Tabs(
-            [
-                dbc.Tab(label="Scatter", tab_id="scatter"),
-                dbc.Tab(label="Histograms", tab_id="histogram"),
-            ],
-            id="tabs",
-            active_tab="scatter",
-        ),
-        html.Div(id="tab-content", className="p-4"),
-    ]
-)
-
-
-@app.callback(
-    Output("tab-content", "children"),
-    [Input("tabs", "active_tab"), Input("store", "data")],
-)
-def render_tab_content(active_tab, data):
-    """
-    This callback takes the 'active_tab' property as input, as well as the
-    stored graphs, and renders the tab content depending on what the value of
-    'active_tab' is.
-    """
-    if active_tab and data is not None:
-        if active_tab == "scatter":
-            return dcc.Graph(figure=data["scatter"])
-        elif active_tab == "histogram":
-            return dbc.Row(
-                [
-                    dbc.Col(dcc.Graph(figure=data["hist_1"]), width=6),
-                    dbc.Col(dcc.Graph(figure=data["hist_2"]), width=6),
-                ]
-            )
-    return "No tab selected"
-
-
-@app.callback(
-    Output(component_id="store", component_property="data"),
-    Input(component_id="button", component_property="n_clicks")
-    )
-def generate_graphs(n):
-    """
-    This callback generates three simple graphs from random data.
-    """
-    if not n:
-        # generate empty graphs when app loads
-        return {k: go.Figure(data=[]) for k in ["scatter", "hist_1", "hist_2"]}
-
-    # simulate expensive graph generation process
-    time.sleep(2)
-
-    # generate 100 multivariate normal samples
-    data = np.random.multivariate_normal([0, 0], [[1, 0.5], [0.5, 1]], 100)
-
-    scatter = go.Figure(
-        data=[go.Scatter(x=data[:, 0], y=data[:, 1], mode="markers")]
-    )
-    hist_1 = go.Figure(data=[go.Histogram(x=data[:, 0])])
-    hist_2 = go.Figure(data=[go.Histogram(x=data[:, 1])])
-
-    # save figures in a dictionary for sending to the dcc.Store
-    return {"scatter": scatter, "hist_1": hist_1, "hist_2": hist_2}
-
 vars = {
     "Suchey Brooks 1990": [
-        'Right Phase Suchey'
-        ],
+        'Right Phase Suchey',
+    ],
     "Meindl and Lovejoy": [
         'Right 1-midlamdoid',
         '2-lambda',
@@ -363,7 +259,7 @@ vars = {
         'Right 8-sphenofrontal',
         'Right 9-inferior sphenotemporal',
         'Right 10-superior sphenotemporal'
-        ],
+    ],
     "Lovejoy et al": [
         "Right Phase"
     ],
@@ -373,7 +269,7 @@ vars = {
         'Right Microposity',
         'Right Macroporositty',
         'Right Apical changes'
-        ],
+    ],
     "Suchey Brooks 1990 and Lovejoy et al": [
         'Right Phase Suchey',
         'Right Phase'
@@ -415,7 +311,146 @@ vars = {
     ]
 }
 
+values = {
+    'Right Phase Suchey': [1, 6],
+    'Right 1-midlamdoid': [1, 6],
+    '2-lambda': [1, 6],
+    '3-obelion': [1, 6],
+    '4-anterior sagital': [1, 6],
+    '5-bregma': [1, 6],
+    'Right 6-midcoronal': [1, 6],
+    'Right 7-pterion': [1, 6],
+    'Right 8-sphenofrontal': [1, 6],
+    'Right 9-inferior sphenotemporal': [1, 6],
+    'Right 10-superior sphenotemporal': [1, 6],
+    "Right Phase": [1, 6],
+    'Right Transverse organization': [1, 6],
+    'Right Surface texture': [1, 6],
+    'Right Microposity': [1, 6],
+    'Right Macroporositty': [1, 6],
+    'Right Apical changes': [1, 6],
+    'Right Phase Suchey': [1, 6],
+    'Right Phase': [1, 6],
+    'Right Transverse organization': [1, 6],
+    'Right Surface texture': [1, 6],
+    'Right Microposity': [1, 6],
+    'Right Macroporositty': [1, 6],
+    'Right Apical changes': [1, 6],
+    'Right Phase Suchey': [1, 6]
 
+}
+
+print(list(vars.keys()))
+print("-------")
+print(list(vars["Suchey Brooks 1990 and Buckberry Chamberlain"]))
+
+app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
+
+app.layout = dbc.Container(
+    [
+        dcc.Store(id="store"),
+        html.H1("AgeEst, an age estimation web app"),
+        html.Hr(),
+        dbc.DropdownMenu(
+            label="Select input variable set",
+            menu_variant="dark",
+            id='select-input-variable-set',
+            children=[
+                dbc.DropdownMenuItem(item, id=str(item)) for item in list(vars.keys())
+            ]
+        ),
+        html.Br(),
+        dbc.Row(id='output-container'),
+        html.Hr(),
+        dbc.Button(
+            "Regenerate graphs",
+            color="primary",
+            id="button",
+            className="mb-3",
+        ),
+        dbc.Tabs(
+            [
+                dbc.Tab(label="Scatter", tab_id="scatter"),
+                dbc.Tab(label="Histograms", tab_id="histogram"),
+            ],
+            id="tabs",
+            active_tab="scatter",
+        ),
+        html.Div(id="tab-content", className="p-4"),
+    ]
+)
+
+
+@app.callback(
+    Output('output-container', 'children'),
+    [Input(str(item), 'n_clicks') for item in list(vars.keys())]
+)
+def update_form(*args):
+    ctx = dash.callback_context
+
+    if not ctx.triggered:
+        button_id = "all"
+    else:
+        button_id = ctx.triggered[0]["prop_id"].split(".")[0]
+
+    if button_id == 'Suchey Brooks 1990':
+        return dbc.Row([
+            dbc.Label('Right Phase Suchey'),
+            dbc.Input(type="number", min=0, max=10, step=1)
+        ])
+    else:
+        return ''
+
+
+@app.callback(
+    Output("tab-content", "children"),
+    [Input("tabs", "active_tab"), Input("store", "data")],
+)
+def render_tab_content(active_tab, data):
+    """
+    This callback takes the 'active_tab' property as input, as well as the
+    stored graphs, and renders the tab content depending on what the value of
+    'active_tab' is.
+    """
+    if active_tab and data is not None:
+        if active_tab == "scatter":
+            return dcc.Graph(figure=data["scatter"])
+        elif active_tab == "histogram":
+            return dbc.Row(
+                [
+                    dbc.Col(dcc.Graph(figure=data["hist_1"]), width=6),
+                    dbc.Col(dcc.Graph(figure=data["hist_2"]), width=6),
+                ]
+            )
+    return "No tab selected"
+
+
+@app.callback(
+    Output(component_id="store", component_property="data"),
+    Input(component_id="button", component_property="n_clicks")
+)
+def generate_graphs(n):
+    """
+    This callback generates three simple graphs from random data.
+    """
+    if not n:
+        # generate empty graphs when app loads
+        return {k: go.Figure(data=[]) for k in ["scatter", "hist_1", "hist_2"]}
+
+    # simulate expensive graph generation process
+    time.sleep(2)
+
+    # generate 100 multivariate normal samples
+    data = np.random.multivariate_normal([0, 0], [[1, 0.5], [0.5, 1]], 100)
+
+    scatter = go.Figure(
+        data=[go.Scatter(x=data[:, 0], y=data[:, 1], mode="markers")]
+    )
+    hist_1 = go.Figure(data=[go.Histogram(x=data[:, 0])])
+    hist_2 = go.Figure(data=[go.Histogram(x=data[:, 1])])
+
+    # save figures in a dictionary for sending to the dcc.Store
+    return {"scatter": scatter, "hist_1": hist_1, "hist_2": hist_2}
 
 
 if __name__ == "__main__":
