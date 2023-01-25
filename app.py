@@ -288,8 +288,6 @@ SIDEBAR_STYLE = {
     "overflow": "hidden"
 }
 
-
-
 CONTENT_STYLE = {
     "position": "fixed",
     "margin-left": "18rem",
@@ -297,16 +295,9 @@ CONTENT_STYLE = {
     "padding": "2rem 1rem",
 }
 
-# print(list(set_of_variables.values()))
-# print(sum(list(set_of_variables.values()), []))
-# print(variables_ranges['Right Phase Suchey'][1])
-# print(variables_ranges['Right Apical changes'])
-
 dropdown_items = [
     dbc.DropdownMenuItem(item, id=str(item)) for item in list(set_of_variables.keys())
 ]
-
-# print(dropdown_items)
 
 sidebar = html.Div(
     [
@@ -388,56 +379,6 @@ def toggle_visibility(*args):
         return [{'visibility': 'hidden'}, {'visibility': 'hidden'}, {'visibility': 'hidden'}, {'visibility': 'hidden'},{'visibility': 'hidden'},{'visibility': 'hidden'},{'visibility': 'visible', 'position': 'relative', 'top': '-2050px'}]
     else:
         return [{'visibility': 'hidden'}, {'visibility': 'hidden'}, {'visibility': 'hidden'}, {'visibility': 'hidden'},{'visibility': 'hidden'},{'visibility': 'hidden'},{'visibility': 'hidden'}]
-
-
-# @app.callback(
-#     Output("page-content", "children"),
-#     Input("hidden_row_1_button", "n_clicks"),
-#     State("hidden_row_1_Right_Phase_Suchey", "value")
-# )
-# def process_input_SB(n_clicks, value):
-#     ctx = dash.callback_context
-    
-#     if ctx.triggered:
-#         button_id = ctx.triggered[0]['prop_id'].split('.')[0]
-        
-#         if button_id == "hidden_row_1_button":
-#             return f"You submitted input1={value}"
-    
-#     else: 
-#         return "Yeah"
-        
-
-# @app.callback(
-#     Output("page-content", "children"),
-#     Input("hidden_row_2_button", "n_clicks"),
-#     [
-#         State("hidden_row_2_Right_1-midlamdoid", "value"),
-#         State("hidden_row_2_2-lambda", "value"),
-#         State("hidden_row_2_3-obelion", "value"),
-#         State("hidden_row_2_4-anterior_sagital", "value"),
-#         State("hidden_row_2_5-bregma", "value"),
-#         State("hidden_row_2_Right_6-midcoronal", "value"),
-#         State("hidden_row_2_Right_7-pterion", "value"),
-#         State("hidden_row_2_Right_8-sphenofrontal", "value"),
-#         State("hidden_row_2_Right_9-inferior_sphenotemporal", "value"),
-#         State("hidden_row_2_Right_10-superior_sphenotemporal", "value"),
-#     ]
-# )
-# def process_input_ML(n_clicks, value1, value2, value3,
-#                      value4, value5, value6, value7, value8, value9, value10):
-#     ctx = dash.callback_context
-    
-#     if ctx.triggered:
-#         button_id = ctx.triggered[0]['prop_id'].split('.')[0]
-        
-#         if button_id == "hidden_row_2_button":
-#             return f"You submitted input1={value1}, input1={value2},input3={value3}, input4={value4}, input5={value5}, input6={value6}, input7={value7}, input8={value8}, input9={value9}, input10={value10}"
-
-#     else:
-#         return "noo"
-
-
 
 
 @app.callback(
