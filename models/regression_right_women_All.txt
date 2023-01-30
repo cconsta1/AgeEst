@@ -1,7 +1,7 @@
 ---------------------------------
 All
 Dataset size: 59 59
-Best classifier: {'learner': KNeighborsRegressor(leaf_size=21, metric='cityblock', n_jobs=1, n_neighbors=1,
-                    p=1.2123816178465663, weights='distance'), 'preprocs': (Normalizer(norm='l1'),), 'ex_preprocs': ()}
+Best classifier: {'learner': AdaBoostRegressor(learning_rate=0.003474939601855072, n_estimators=11,
+                  random_state=2), 'preprocs': (StandardScaler(with_std=False),), 'ex_preprocs': ()}
 
-Accuracy: 0.4277803958529688
+Accuracy: 0.7300737078461711

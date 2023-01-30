@@ -1,0 +1,12 @@
+---------------------------------
+All
+Dataset size: 140 140
+Best classifier: {'learner': XGBRegressor(colsample_bylevel=0.8140891897900845,
+             colsample_bytree=0.5715389042663115, gamma=0.0944789108006202,
+             learning_rate=0.09383492916977866, max_depth=10,
+             min_child_weight=15, missing=nan, n_estimators=3200,
+             objective='reg:squarederror', reg_alpha=0.30093793015609216,
+             reg_lambda=1.6236338670746115, seed=3,
+             subsample=0.7452966927962194), 'preprocs': (PCA(n_components=17),), 'ex_preprocs': ()}
+
+Accuracy: 0.4760172120560421

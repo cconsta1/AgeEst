@@ -4,4 +4,4 @@
 Suchey Brooks 1990
 Dataset size: 81 81
 
-Accuracy: [280.7708435058594, 0.0]
+Accuracy: [296.7074279785156, 0.0]

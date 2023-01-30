@@ -1,0 +1,14 @@
+---------------------------------
+Buckberry and Chamberlain
+Dataset size: 140 140
+Best classifier: {'learner': SVC(C=1.249588832236902, coef0=0.21934983651269901,
+    decision_function_shape='ovo', degree=5, gamma='auto', random_state=1,
+    shrinking=False, tol=0.0001161781899979543), 'preprocs': (StandardScaler(),), 'ex_preprocs': ()}
+
+Accuracy: 0.6857142857142857
+
+Confusion matrix: 
+[[ 4  2  1]
+ [ 2  0  5]
+ [ 1  0 20]]
+LOOCV accuracy: 0.7214285714285714

@@ -1,13 +1,14 @@
 ---------------------------------
 Lovejoy et al
 Dataset size: 59 59
-Best classifier: {'learner': AdaBoostClassifier(learning_rate=0.7330306718496117, n_estimators=356,
-                   random_state=1), 'preprocs': (PCA(n_components=1, whiten=True),), 'ex_preprocs': ()}
+Best classifier: {'learner': GradientBoostingClassifier(learning_rate=0.02428477616610762, max_depth=4,
+                           max_features=0.8673678235756124, max_leaf_nodes=10,
+                           n_estimators=15, random_state=0, verbose=False), 'preprocs': (PCA(n_components=1, whiten=True),), 'ex_preprocs': ()}
 
-Accuracy: 0.7333333333333333
+Accuracy: 0.6666666666666666
 
 Confusion matrix: 
-[[1 0 1]
- [0 1 2]
- [0 1 9]]
-LOOCV accuracy: 0.7796610169491526
+[[ 0  1  1]
+ [ 0  0  3]
+ [ 0  0 10]]
+LOOCV accuracy: 0.6440677966101694

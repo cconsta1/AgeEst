@@ -1,0 +1,7 @@
+---------------------------------
+Suchey Brooks 1990
+Dataset size: 140 140
+Best classifier: {'learner': SVR(C=0.9155597850054301, coef0=0.6249036247305603, degree=5,
+    epsilon=0.12899309433848707, kernel='linear', tol=0.0028781040033702444), 'preprocs': (PCA(n_components=1, whiten=True),), 'ex_preprocs': ()}
+
+Accuracy: 0.38819103545146827

@@ -4,9 +4,9 @@
 Buckberry and Chamberlain
 Dataset size: 81 81
 
-Accuracy: [0.8393647074699402, 0.7142857313156128]
+Accuracy: [0.7296487092971802, 0.761904776096344]
 
 Confusion matrix: 
-[[ 3  0  2]
+[[ 4  0  1]
  [ 0  0  4]
  [ 0  0 12]]

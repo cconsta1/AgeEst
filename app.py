@@ -1,9 +1,32 @@
+"""
+ @file app.py
+ A web app for deploying age estimation machine learning
+ models
+ 
+ Language: Python (Dash)
+ 
+ Chrysovalantis Constantinou
+ 
+ The Cyprus Institute
+ 
+ + 11/01/22 (cc): Created.
+ + 01/25/23 (cc): Basic functional version completed
+"""
+
 import time
 import dash
 import dash_bootstrap_components as dbc
+import pickle
 import numpy as np
 import plotly.graph_objs as go
 from dash import Input, Output, State, dcc, html
+import tensorflow as tf
+from tensorflow import keras
+from keras.models import load_model
+import xgboost
+
+
+
 
 app = dash.Dash(external_stylesheets=[
                 dbc.themes.BOOTSTRAP])
@@ -335,7 +358,7 @@ content = html.Div(
     children=[
         html.H1('Hello Dash'),
         dbc.Row(id="page-content"),
-        dbc.Row(id="users-input")
+        dbc.Row(id="ann-models")
     ]
 )
 
@@ -382,7 +405,7 @@ def toggle_visibility(*args):
 
 
 @app.callback(
-    Output("page-content", "children"),
+    [Output("page-content", "children"), Output("ann-models", "children")],
     [
         Input("hidden_row_1_button", "n_clicks"),
         Input("hidden_row_2_button", "n_clicks"),
@@ -439,35 +462,109 @@ def toggle_visibility(*args):
 )
 def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_clicks6, n_clicks7,
                   input1_1, 
-                  input2_1, input2_2, input2_3, input2_4, input2_5, input2_6, input2_7, input2_8, input2_9, input2_10,
+                  input2_1, input2_2, input2_3, input2_4, input2_5, input2_6, \
+                    input2_7, input2_8, input2_9, input2_10,
                   input3_1,
                   input4_1, input4_2, input4_3, input4_4, input4_5,
                   input5_1, input5_2,
                   input6_1, input6_2, input6_3, input6_4, input6_5, input6_6,
-                  input7_1, input7_2, input7_3, input7_4, input7_5, input7_6, input7_7, input7_8, input7_9, input7_10, input7_11, input7_12, input7_13, input7_14, input7_15, input7_16, input7_17):
+                  input7_1, input7_2, input7_3, input7_4, input7_5, input7_6, input7_7, \
+                    input7_8, input7_9, input7_10, input7_11, input7_12, input7_13, \
+                    input7_14, input7_15, input7_16, input7_17):
     
     ctx = dash.callback_context
     
     if ctx.triggered:
         button_id = ctx.triggered[0]['prop_id'].split('.')[0]
-        
+
         if button_id == "hidden_row_1_button":
-            return f"You submitted input1={input1_1}"
+            X = [[input1_1]]
+
+            y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
+            y_regression_tf = calculate_y_vectors("Suchey_Brooks_1990", X)
+
+            
+            return f"The predicted result from sklearn (classification) is {y_classification_sklearn} \
+                and from tensorflow is {y_classification_tf}", \
+                    f"The predicted result from sklearn (regression) is {y_regression_sklearn} \
+                and from tensorflow is {y_regression_tf}"
+        
         if button_id == "hidden_row_2_button":
-            return f"You submitted input1={input2_1}, input1={input2_2},input3={input2_3}, input4={input2_4}, input5={input2_5}, input6={input2_6}, input7={input2_7}, input8={input2_8}, input9={input2_9}, input10={input2_10}"
+            X = [[input2_1, input2_2, input2_3, input2_4, input2_5, \
+                  input2_6, input2_7, input2_8, input2_9, input2_10]]
+            
+            y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
+            y_regression_tf = calculate_y_vectors("Meindl_and_Lovejoy", X)
+            
+            return f"The predicted result from sklearn (classification) is {y_classification_sklearn} \
+                and from tensorflow is {y_classification_tf}", \
+                    f"The predicted result from sklearn (regression) is {y_regression_sklearn} \
+                and from tensorflow is {y_regression_tf}"
+
+
+
+            
         if button_id == "hidden_row_3_button":
-            return f"You submitted input1={input3_1}"
+            X = [[input3_1]]
+            
+            y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
+            y_regression_tf = calculate_y_vectors("Lovejoy_et_al", X)
+            
+            return f"The predicted result from sklearn (classification) is {y_classification_sklearn} \
+                and from tensorflow is {y_classification_tf}", \
+                    f"The predicted result from sklearn (regression) is {y_regression_sklearn} \
+                and from tensorflow is {y_regression_tf}"
+
+
         if button_id == "hidden_row_4_button":
-            return f"You submitted input1={input4_1}, input1={input4_2},input3={input4_3}, input4={input4_4}, input5={input4_5}"
+            X = [[input4_1, input4_2, input4_3, input4_4, input4_5]]
+            
+            y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
+            y_regression_tf = calculate_y_vectors("Buckberry_and_Chamberlain", X)
+            
+            return f"The predicted result from sklearn (classification) is {y_classification_sklearn} \
+                and from tensorflow is {y_classification_tf}", \
+                    f"The predicted result from sklearn (regression) is {y_regression_sklearn} \
+                and from tensorflow is {y_regression_tf}"
+        
+            
         if button_id == "hidden_row_5_button":
-            return f"You submitted input1={input5_1}, input1={input5_2}"
+            X = [[input5_1, input5_2]]
+            
+            y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
+            y_regression_tf = calculate_y_vectors("Suchey_Brooks_1990_and_Lovejoy_et_al", X)
+            
+            return f"The predicted result from sklearn (classification) is {y_classification_sklearn} \
+                and from tensorflow is {y_classification_tf}", \
+                    f"The predicted result from sklearn (regression) is {y_regression_sklearn} \
+                and from tensorflow is {y_regression_tf}"
+
         if button_id == "hidden_row_6_button":
-            return f"You submitted input1={input6_1}, input1={input6_2},input3={input6_3}, input4={input6_4}, input5={input6_5}, input5={input6_6}"
+            X = [[input6_1, input6_2, input6_3, input6_4, input6_5, input6_6]]
+            
+            y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
+            y_regression_tf = calculate_y_vectors("Suchey_Brooks_1990_and_Buckberry_Chamberlain", X)
+            
+            return f"The predicted result from sklearn (classification) is {y_classification_sklearn} \
+                and from tensorflow is {y_classification_tf}", \
+                    f"The predicted result from sklearn (regression) is {y_regression_sklearn} \
+                and from tensorflow is {y_regression_tf}"
+
         if button_id == "hidden_row_7_button":
-            return f"You submitted input1={input7_1}, input1={input7_2},input3={input7_3}, input4={input7_4}, input5={input7_5}, input6={input7_6}, input7={input7_7}, input8={input7_8}, input9={input7_9}, input10={input7_10}, input11={input7_11}, input12={input7_12}, input13={input7_13}, input14={input7_14}, input15={input7_15}, input16={input7_16}, input17={input7_17}"
+            X = [[input7_1, input7_2, input7_3, input7_4, input7_5, input7_6, input7_7, \
+                    input7_8, input7_9, input7_10, input7_11, input7_12, input7_13, \
+                    input7_14, input7_15, input7_16, input7_17]]
+            
+            y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
+            y_regression_tf = calculate_y_vectors("All", X)
+            
+            return f"The predicted result from sklearn (classification) is {y_classification_sklearn} \
+                and from tensorflow is {y_classification_tf}", \
+                    f"The predicted result from sklearn (regression) is {y_regression_sklearn} \
+                and from tensorflow is {y_regression_tf}"
 
 
-    return "Nothing was submitted"
+    return "Nothing was submitted", ""
 
 
 # @app.callback(
@@ -564,6 +661,37 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
 #     print(ctx)
 
 #     return 'value'
+
+def calculate_y_vectors(model, X):
+    classification_model_sklearn =  \
+        pickle.load(
+            open("".join(["./models/classification_right_",model,".dat"]), "rb"))
+    classification_model_tf = \
+        load_model(
+            "".join(["./models/ann_classification_right_",model,".h5"]))
+
+    regression_model_sklearn = \
+        pickle.load(
+            open("".join(["./models/regression_right_",model,".dat"]), "rb"))
+    regression_model_tf = \
+        load_model(
+            "".join(["./models/ann_regression_right_",model,".h5"]))
+
+    y_classification_sklearn = classification_model_sklearn.predict(X)
+
+    y_classification_tf = classification_model_tf.predict(X)
+    y_classification_tf = np.argmax(y_classification_tf, axis=1)
+
+    y_regression_sklearn = regression_model_sklearn.predict(X)
+    y_regression_tf = regression_model_tf.predict(X)
+
+    return y_classification_sklearn, y_classification_tf, \
+        y_regression_sklearn, y_regression_tf
+
+
+
+def generate_text(input_text):
+    return "malakia"
 
 
 if __name__ == "__main__":

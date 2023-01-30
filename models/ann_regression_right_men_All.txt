@@ -4,4 +4,4 @@
 All
 Dataset size: 81 81
 
-Accuracy: [179.06533813476562, 0.0]
+Accuracy: [71.07579040527344, 0.0]

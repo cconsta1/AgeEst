@@ -1,13 +1,13 @@
 ---------------------------------
 Suchey Brooks 1990 and Buckberry Chamberlain
 Dataset size: 81 81
-Best classifier: {'learner': AdaBoostClassifier(learning_rate=0.016175390370715526, n_estimators=42,
-                   random_state=1), 'preprocs': (Normalizer(),), 'ex_preprocs': ()}
+Best classifier: {'learner': AdaBoostClassifier(learning_rate=2.829163532503033, n_estimators=952,
+                   random_state=2), 'preprocs': (StandardScaler(),), 'ex_preprocs': ()}
 
-Accuracy: 0.5714285714285714
+Accuracy: 0.3333333333333333
 
 Confusion matrix: 
-[[ 1  2  2]
- [ 0  0  4]
- [ 0  1 11]]
-LOOCV accuracy: 0.7160493827160493
+[[2 3 0]
+ [0 2 2]
+ [0 9 3]]
+LOOCV accuracy: 0.7407407407407407

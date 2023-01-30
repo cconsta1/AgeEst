@@ -1,14 +1,13 @@
 ---------------------------------
 Suchey Brooks 1990
 Dataset size: 59 59
-Best classifier: {'learner': RandomForestClassifier(class_weight='balanced', criterion='entropy',
-                       max_features='log2', n_estimators=657, n_jobs=1,
-                       random_state=1, verbose=False), 'preprocs': (PCA(n_components=1, whiten=True),), 'ex_preprocs': ()}
+Best classifier: {'learner': KNeighborsClassifier(algorithm='kd_tree', leaf_size=39, metric='manhattan',
+                     n_jobs=1, n_neighbors=11, p=3.8522142275284423), 'preprocs': (PCA(n_components=1, whiten=True),), 'ex_preprocs': ()}
 
-Accuracy: 0.8
+Accuracy: 0.7333333333333333
 
 Confusion matrix: 
-[[2 0 0]
- [2 1 0]
+[[1 0 1]
+ [0 1 2]
  [0 1 9]]
-LOOCV accuracy: 0.7796610169491526
+LOOCV accuracy: 0.8135593220338984

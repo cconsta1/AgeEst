@@ -1,12 +1,17 @@
 ---------------------------------
 Suchey Brooks 1990 and Lovejoy et al
 Dataset size: 59 59
-Best classifier: {'learner': ExtraTreeClassifier(max_depth=3, max_features='sqrt', random_state=1), 'preprocs': (MinMaxScaler(feature_range=(0.0, 1.0)),), 'ex_preprocs': ()}
+Best classifier: {'learner': XGBClassifier(colsample_bylevel=0.8314409404689158,
+              colsample_bytree=0.9233220179208262, gamma=0.002704118802708902,
+              learning_rate=0.00032989005096273105, max_depth=10, missing=nan,
+              n_estimators=1400, objective='multi:softprob',
+              reg_alpha=0.051812672852803617, reg_lambda=2.1651363182452337,
+              seed=0, subsample=0.5559384518995546, use_label_encoder=False), 'preprocs': (PCA(n_components=2, whiten=True),), 'ex_preprocs': ()}
 
-Accuracy: 0.8
+Accuracy: 0.6
 
 Confusion matrix: 
-[[ 2  0  0]
- [ 0  0  3]
- [ 0  0 10]]
-LOOCV accuracy: 0.5932203389830508
+[[0 2 0]
+ [0 1 2]
+ [0 2 8]]
+LOOCV accuracy: 0.6949152542372882

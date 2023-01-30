@@ -4,4 +4,4 @@
 Lovejoy et al
 Dataset size: 81 81
 
-Accuracy: [132.81813049316406, 0.0]
+Accuracy: [191.7811279296875, 0.0]

@@ -4,9 +4,9 @@
 Suchey Brooks 1990 and Lovejoy et al
 Dataset size: 59 59
 
-Accuracy: [0.6239497065544128, 0.7333333492279053]
+Accuracy: [0.596166729927063, 0.7333333492279053]
 
 Confusion matrix: 
-[[ 0  1  1]
+[[ 0  2  0]
  [ 0  1  2]
  [ 0  0 10]]

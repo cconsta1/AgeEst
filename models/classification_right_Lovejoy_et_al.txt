@@ -1,0 +1,14 @@
+---------------------------------
+Lovejoy et al
+Dataset size: 140 140
+Best classifier: {'learner': RandomForestClassifier(class_weight='balanced', max_features='log2',
+                       min_samples_leaf=4, n_estimators=360, n_jobs=1,
+                       random_state=4, verbose=False), 'preprocs': (MinMaxScaler(clip=True, feature_range=(-1.0, 1.0)),), 'ex_preprocs': ()}
+
+Accuracy: 0.8571428571428571
+
+Confusion matrix: 
+[[ 6  1  0]
+ [ 3  3  1]
+ [ 0  0 21]]
+LOOCV accuracy: 0.8071428571428572

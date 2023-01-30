@@ -1,0 +1,7 @@
+---------------------------------
+Buckberry and Chamberlain
+Dataset size: 140 140
+Best classifier: {'learner': ExtraTreeRegressor(criterion='friedman_mse', max_depth=4, max_features='sqrt',
+                   random_state=4, splitter='best'), 'preprocs': (PCA(n_components=5),), 'ex_preprocs': ()}
+
+Accuracy: 0.4250320993625666

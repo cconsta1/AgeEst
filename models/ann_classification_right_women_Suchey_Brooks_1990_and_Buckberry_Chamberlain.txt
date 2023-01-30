@@ -4,9 +4,9 @@
 Suchey Brooks 1990 and Buckberry Chamberlain
 Dataset size: 59 59
 
-Accuracy: [0.6801244020462036, 0.7333333492279053]
+Accuracy: [0.6296408176422119, 0.6666666865348816]
 
 Confusion matrix: 
-[[ 1  0  1]
- [ 0  0  3]
- [ 0  0 10]]
+[[1 0 1]
+ [0 0 3]
+ [0 1 9]]

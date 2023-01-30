@@ -1,9 +1,8 @@
 ---------------------------------
 Lovejoy et al
 Dataset size: 59 59
-Best classifier: {'learner': RandomForestRegressor(bootstrap=False, max_features=0.04477625356815501,
-                      max_leaf_nodes=10, min_samples_leaf=7,
-                      min_samples_split=3, n_estimators=253, n_jobs=1,
-                      random_state=1, verbose=False), 'preprocs': (MinMaxScaler(feature_range=(0.0, 1.0)),), 'ex_preprocs': ()}
+Best classifier: {'learner': KNeighborsRegressor(algorithm='brute', leaf_size=34, metric='cityblock',
+                    n_jobs=1, n_neighbors=4, p=2.024177243491121,
+                    weights='distance'), 'preprocs': (StandardScaler(with_mean=False),), 'ex_preprocs': ()}
 
-Accuracy: -0.09378663159776268
+Accuracy: -0.05961461022810721

@@ -1,7 +1,7 @@
 ---------------------------------
 Meindl and Lovejoy
 Dataset size: 81 81
-Best classifier: {'learner': KNeighborsRegressor(algorithm='kd_tree', leaf_size=39, n_jobs=1, n_neighbors=8,
-                    p=3.327887082760441), 'preprocs': (PCA(n_components=10, whiten=True),), 'ex_preprocs': ()}
+Best classifier: {'learner': AdaBoostRegressor(learning_rate=0.011959719045226259, n_estimators=122,
+                  random_state=1), 'preprocs': (PCA(n_components=10, whiten=True),), 'ex_preprocs': ()}
 
-Accuracy: -0.1577154970564627
+Accuracy: 0.14269333061331302

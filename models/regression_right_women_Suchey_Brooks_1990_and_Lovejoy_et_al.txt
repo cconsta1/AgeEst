@@ -1,7 +1,7 @@
 ---------------------------------
 Suchey Brooks 1990 and Lovejoy et al
 Dataset size: 59 59
-Best classifier: {'learner': KNeighborsRegressor(algorithm='brute', n_jobs=1, n_neighbors=6,
-                    p=3.596785682379651), 'preprocs': (MinMaxScaler(clip=True, feature_range=(0.0, 1.0)),), 'ex_preprocs': ()}
+Best classifier: {'learner': ExtraTreeRegressor(max_depth=3, max_features='log2', max_leaf_nodes=5,
+                   random_state=4, splitter='best'), 'preprocs': (Normalizer(norm='l1'),), 'ex_preprocs': ()}
 
-Accuracy: 0.7278305728536009
+Accuracy: 0.3467986106594213

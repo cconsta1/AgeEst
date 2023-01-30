@@ -1,13 +1,13 @@
 ---------------------------------
 Meindl and Lovejoy
 Dataset size: 59 59
-Best classifier: {'learner': ExtraTreeClassifier(criterion='entropy', max_features='sqrt', random_state=1,
-                    splitter='best'), 'preprocs': (MinMaxScaler(clip=True, feature_range=(-1.0, 1.0)),), 'ex_preprocs': ()}
+Best classifier: {'learner': ExtraTreeClassifier(criterion='entropy', max_depth=3, max_features='log2',
+                    random_state=0, splitter='best'), 'preprocs': (Normalizer(norm='max'),), 'ex_preprocs': ()}
 
-Accuracy: 0.5333333333333333
+Accuracy: 0.7333333333333333
 
 Confusion matrix: 
-[[1 0 1]
- [1 1 1]
- [2 2 6]]
-LOOCV accuracy: 0.4406779661016949
+[[ 1  1  0]
+ [ 0  0  3]
+ [ 0  0 10]]
+LOOCV accuracy: 0.5084745762711864

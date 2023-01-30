@@ -4,4 +4,4 @@
 Buckberry and Chamberlain
 Dataset size: 81 81
 
-Accuracy: [136.3246612548828, 0.0]
+Accuracy: [238.00572204589844, 0.0]

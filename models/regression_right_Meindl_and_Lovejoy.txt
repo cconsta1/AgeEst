@@ -1,0 +1,7 @@
+---------------------------------
+Meindl and Lovejoy
+Dataset size: 140 140
+Best classifier: {'learner': KNeighborsRegressor(leaf_size=20, metric='euclidean', n_jobs=1,
+                    p=3.5719677830509333, weights='distance'), 'preprocs': (StandardScaler(with_mean=False),), 'ex_preprocs': ()}
+
+Accuracy: 0.1290656706913219
