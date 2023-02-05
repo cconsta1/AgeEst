@@ -24,10 +24,11 @@ import tensorflow as tf
 from tensorflow import keras
 from keras.models import load_model
 import xgboost
+import re
 
 
 app = dash.Dash(external_stylesheets=[
-                dbc.themes.BOOTSTRAP])
+                dbc.themes.COSMO])
 
 app.title = "AgeEst"
 
@@ -98,7 +99,8 @@ row_1 = dbc.Row(
         dbc.Label("Right Phase Suchey",),
         dbc.Input(id="row_1_Right_Phase_Suchey",
                   type="number", min=1, max=6, step=1),
-        dbc.Button('Submit', id='row_1_button', n_clicks=0, )
+        html.Hr(style={'visibility': 'hidden','clear': 'both'}),
+        dbc.Button('Submit', id='row_1_button', n_clicks=0, ),
     ],
     #style={'visibility': 'hidden'},
     id="row_1"
@@ -136,6 +138,7 @@ row_2 = dbc.Row(
         dbc.Label("Right 10-superior sphenotemporal",),
         dbc.Input(id="row_2_Right_10-superior_sphenotemporal",
                   type="number", min=0, max=3, step=1, ),
+        html.Hr(style={'visibility': 'hidden','clear': 'both'}),
         dbc.Button('Submit', id='row_2_button', n_clicks=0, )
     ],
     # style={'visibility': 'hidden'},
@@ -147,6 +150,7 @@ row_3 = dbc.Row(
         dbc.Label("Right Phase",),
         dbc.Input(id="row_3_Right_Phase",
                   type="number", min=1, max=8, step=1, ),
+        html.Hr(style={'visibility': 'hidden','clear': 'both'}),
         dbc.Button('Submit', id='row_3_button', n_clicks=0, )
     ],
     # style={'visibility': 'hidden'},
@@ -171,6 +175,7 @@ row_4 = dbc.Row(
         dbc.Label("Right Apical changes",),
         dbc.Input(id="row_4_Right_Apical_changes",
                   type="number", min=1, max=5, step=1, ),
+        html.Hr(style={'visibility': 'hidden','clear': 'both'}),
         dbc.Button('Submit', id='row_4_button', n_clicks=0, )
     ],
     # style={'visibility': 'hidden'},
@@ -186,6 +191,7 @@ row_5 = dbc.Row(
         dbc.Label("Right Phase",),
         dbc.Input(id="row_5_Right_Phase",
                   type="number", min=1, max=8, step=1, ),
+        html.Hr(style={'visibility': 'hidden','clear': 'both'}),
         dbc.Button('Submit', id='row_5_button', n_clicks=0, )
     ],
     # style={'visibility': 'hidden'},
@@ -212,6 +218,7 @@ row_6 = dbc.Row(
         dbc.Label("Right Phase Suchey",),
         dbc.Input(id="row_6_Right_Phase_Suchey",
                   type="number", min=1, max=6, step=1, ),
+        html.Hr(style={'visibility': 'hidden','clear': 'both'}),
         dbc.Button('Submit', id='row_6_button', n_clicks=0, )
     ],
     # style={'visibility': 'hidden'},
@@ -271,6 +278,7 @@ row_7 = dbc.Row(
         dbc.Label("Right Apical changes",),
         dbc.Input(id="row_7_Right_Apical_changes",
                   type="number", min=1, max=5, step=1, ),
+        html.Hr(style={'visibility': 'hidden','clear': 'both'}),
         dbc.Button('Submit', id='row_7_button', n_clicks=0, )
     ],
     # style={'visibility': 'hidden'},
@@ -282,7 +290,7 @@ SIDEBAR_STYLE = {
     "top": 0,
     "left": 0,
     "bottom": 0,
-    "height": "128rem",
+    "height": "126rem",
     "width": "16rem",
     "padding": "2rem 1rem",
     "background-color": "#f8f9fa",
@@ -364,7 +372,9 @@ content = html.Div(
     style=CONTENT_STYLE,
     children=[
         html.H1('Output'),
+        html.Hr(style={'visibility': 'hidden','clear': 'both'}),
         dbc.Row(id="page-content"),
+        html.Hr(style={'visibility': 'hidden','clear': 'both'}),
         dbc.Row(id="ann-models")
     ]
 )
@@ -450,11 +460,20 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
             y_regression_tf = calculate_y_vectors("Suchey_Brooks_1990", X)
 
+            best_classifier, r2_test, r2_train, rmse, mae = regression_model_info_extractor("Suchey_Brooks_1990")
+
+            print(best_classifier, r2_test, r2_train, rmse, mae)
+
+            print("y_regression_sklearn = ", y_regression_sklearn)
+            print("y_regression_tf = ", y_regression_tf)
             
-            return f"The predicted result from sklearn (classification) is {y_classification_sklearn} \
-                and from tensorflow is {y_classification_tf}", \
-                    f"The predicted result from sklearn (regression) is {y_regression_sklearn} \
-                and from tensorflow is {y_regression_tf}"
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],0)
+
+            classification = output_classification(y_classification_sklearn[0], \
+                                                   y_classification_tf[0])
+
+            return classification, regression
+
         
         if button_id == "row_2_button":
             X = [[input2_1, input2_2, input2_3, input2_4, input2_5, \
@@ -462,12 +481,15 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
             y_regression_tf = calculate_y_vectors("Meindl_and_Lovejoy", X)
-            
-            return f"The predicted result from sklearn (classification) is {y_classification_sklearn} \
-                and from tensorflow is {y_classification_tf}", \
-                    f"The predicted result from sklearn (regression) is {y_regression_sklearn} \
-                and from tensorflow is {y_regression_tf}"
 
+            best_classifier, r2_test, r2_train, rmse, mae = regression_model_info_extractor("Meindl_and_Lovejoy")
+            
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],0)
+
+            classification = output_classification(y_classification_sklearn[0], \
+                                                   y_classification_tf[0])
+            
+            return classification, regression
             
         if button_id == "row_3_button":
             X = [[input3_1]]
@@ -475,45 +497,63 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
             y_regression_tf = calculate_y_vectors("Lovejoy_et_al", X)
             
-            return f"The predicted result from sklearn (classification) is {y_classification_sklearn} \
-                and from tensorflow is {y_classification_tf}", \
-                    f"The predicted result from sklearn (regression) is {y_regression_sklearn} \
-                and from tensorflow is {y_regression_tf}"
+            best_classifier, r2_test, r2_train, rmse, mae = regression_model_info_extractor("Lovejoy_et_al")
+            
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],0)
 
+            classification = output_classification(y_classification_sklearn[0], \
+                                                   y_classification_tf[0])
+            
+            return classification, regression
 
         if button_id == "row_4_button":
             X = [[input4_1, input4_2, input4_3, input4_4, input4_5]]
             
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
             y_regression_tf = calculate_y_vectors("Buckberry_and_Chamberlain", X)
+
+            best_classifier, r2_test, r2_train, rmse, mae = regression_model_info_extractor("Buckberry_and_Chamberlain")
             
-            return f"The predicted result from sklearn (classification) is {y_classification_sklearn} \
-                and from tensorflow is {y_classification_tf}", \
-                    f"The predicted result from sklearn (regression) is {y_regression_sklearn} \
-                and from tensorflow is {y_regression_tf}"
-        
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],0)
+
+            classification = output_classification(y_classification_sklearn[0], \
+                                                   y_classification_tf[0])
             
+            return classification, regression
+            
+          
         if button_id == "row_5_button":
             X = [[input5_1, input5_2]]
             
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
             y_regression_tf = calculate_y_vectors("Suchey_Brooks_1990_and_Lovejoy_et_al", X)
-            
-            return f"The predicted result from sklearn (classification) is {y_classification_sklearn} \
-                and from tensorflow is {y_classification_tf}", \
-                    f"The predicted result from sklearn (regression) is {y_regression_sklearn} \
-                and from tensorflow is {y_regression_tf}"
 
+            best_classifier, r2_test, r2_train, rmse, mae = regression_model_info_extractor("Suchey_Brooks_1990_and_Lovejoy_et_al")
+            
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],0)
+
+            classification = output_classification(y_classification_sklearn[0], \
+                                                   y_classification_tf[0])
+            
+            return classification, regression
+   
+            
         if button_id == "row_6_button":
             X = [[input6_1, input6_2, input6_3, input6_4, input6_5, input6_6]]
             
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
             y_regression_tf = calculate_y_vectors("Suchey_Brooks_1990_and_Buckberry_Chamberlain", X)
             
-            return f"The predicted result from sklearn (classification) is {y_classification_sklearn} \
-                and from tensorflow is {y_classification_tf}", \
-                    f"The predicted result from sklearn (regression) is {y_regression_sklearn} \
-                and from tensorflow is {y_regression_tf}"
+            best_classifier, r2_test, r2_train, rmse, mae = regression_model_info_extractor("Suchey_Brooks_1990_and_Buckberry_Chamberlain")
+            
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],0)
+
+            classification = output_classification(y_classification_sklearn[0], \
+                                                   y_classification_tf[0])
+            
+            return classification, regression
+            
+
 
         if button_id == "row_7_button":
             X = [[input7_1, input7_2, input7_3, input7_4, input7_5, input7_6, input7_7, \
@@ -523,13 +563,70 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
             y_regression_tf = calculate_y_vectors("All", X)
             
-            return f"The predicted result from sklearn (classification) is {y_classification_sklearn} \
-                and from tensorflow is {y_classification_tf}", \
-                    f"The predicted result from sklearn (regression) is {y_regression_sklearn} \
-                and from tensorflow is {y_regression_tf}"
+            best_classifier, r2_test, r2_train, rmse, mae = regression_model_info_extractor("All")
+            
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],0)
+
+            classification = output_classification(y_classification_sklearn[0], \
+                                                   y_classification_tf[0])
+            
+            return classification, regression
+
+    return "Welcome to AgeEst, a skeletal age-at-death estimation tool", "Please enter your selection on the sidebar to get started"
 
 
-    return "Please enter your selection on the sidebar", ""
+def output_classification(y_sklearn, y_tf):
+
+    text = (
+        f"The sample is split into three age-groups, "
+        f"14-34 (class 0), 35-49 (class 1), and 50- (class 2). "
+        f"Using the sklearn library's classification algorithms we predict that "
+        f"for the given input the sample belongs to the {y_sklearn} class, "
+        f"and using a tensorflow neural network the prediction for the class is {y_tf}."
+    )
+
+    card = dbc.Card(
+        dbc.CardBody(
+            [
+                html.H5("Classification", className="card-title"),
+                html.P(
+                    text
+                ),
+            ]
+        ),
+        style={"width": "48rem"},
+    )
+
+    return card
+
+
+
+def output_regression(result_sklearn, rmse_sklearn, result_tf, rmse_tf):
+
+    text = (
+        f"Using regression, we can make a prediction for the age directly. "
+        f"Using the sklearn library's regression algorithms we predict an age of {result_sklearn:.1f}"
+        f"\u00B1"
+        f"{rmse_sklearn:.1f}"
+        f", and "
+        f"using a tensorflow neural network we predict {result_tf:.1f}"
+        f"\u00B1"
+        f"{rmse_tf:.1f}"
+    )
+
+    card = dbc.Card(
+        dbc.CardBody(
+            [
+                html.H5("Regression", className="card-title"),
+                html.P(
+                    text
+                ),
+            ]
+        ),
+        style={"width": "48rem"},
+    )
+
+    return card
 
 
 
@@ -558,6 +655,58 @@ def calculate_y_vectors(model, X):
 
     return y_classification_sklearn, y_classification_tf, \
         y_regression_sklearn, y_regression_tf
+
+
+
+def regression_model_info_extractor(variable_set):
+
+    file = "".join(["./models/regression_right_",variable_set,".txt"])
+
+    #print(file)
+
+    best_classifier = ""
+    r2_test, r2_train, rmse, mae = 0.0, 0.0, 0.0, 0.0
+
+
+    with open(file, 'r') as f:
+
+        contents = f.read()
+        lines = contents.split("\n")
+        
+        print(contents)
+        print("****")
+
+        for line in lines:
+            if re.search("Best classifier", line):
+                pattern = r"learner': (.*?)\("
+                match = re.search(pattern, line)
+
+                if match:
+                    extracted_text = match.group(1)
+                    best_classifier = extracted_text
+                    print(best_classifier)
+                else:
+                    print("No match found")
+
+            if re.search("(test)", line):
+                matches = re.findall(r"\d+\.\d+", line)
+                numbers = [float(match) for match in matches]
+                r2_test, r2_train = numbers
+                print(r2_test, r2_train)
+
+            if re.search("RMSE", line):
+                matches = re.findall(r"\d+\.\d+", line)
+                numbers = [float(match) for match in matches]
+                rmse = numbers[0]
+                print(rmse)
+
+            if re.search("MAE", line):
+                matches = re.findall(r"\d+\.\d+", line)
+                numbers = [float(match) for match in matches]
+                mae = numbers[0]
+                print(mae)
+    
+    return best_classifier, r2_test, r2_train, rmse, mae
 
 
 if __name__ == "__main__":

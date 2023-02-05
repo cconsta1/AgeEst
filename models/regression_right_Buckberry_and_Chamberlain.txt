@@ -1,7 +1,8 @@
 ---------------------------------
 Buckberry and Chamberlain
 Dataset size: 140 140
-Best classifier: {'learner': ExtraTreeRegressor(criterion='friedman_mse', max_depth=4, max_features='sqrt',
-                   random_state=4, splitter='best'), 'preprocs': (PCA(n_components=5),), 'ex_preprocs': ()}
-
-Accuracy: 0.4250320993625666
+Best classifier: {'learner': KNeighborsRegressor(algorithm='kd_tree', leaf_size=26, metric='euclidean',
+                    n_jobs=1, n_neighbors=4, p=4.152249855319679), 'preprocs': (MinMaxScaler(feature_range=(-1.0, 1.0)),), 'ex_preprocs': ()}
+R **2 = 0.3250294253646644 (test), R**2 = 0.6488442336841442 (train)
+RMSE = 13.546480829246498
+MAE = 10.514285714285714

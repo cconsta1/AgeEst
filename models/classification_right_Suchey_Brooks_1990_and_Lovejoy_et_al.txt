@@ -1,16 +1,16 @@
 ---------------------------------
 Suchey Brooks 1990 and Lovejoy et al
 Dataset size: 140 140
-Best classifier: {'learner': RandomForestClassifier(bootstrap=False, class_weight='balanced_subsample',
-                       max_features='sqrt', max_leaf_nodes=5,
-                       min_impurity_decrease=0.02, min_samples_split=3,
-                       n_estimators=10, n_jobs=1, random_state=2,
-                       verbose=False), 'preprocs': (StandardScaler(),), 'ex_preprocs': ()}
+Best classifier: {'learner': SGDClassifier(alpha=0.00023002442942214328, eta0=0.0002703475990043833,
+              l1_ratio=0.8153096991931308, learning_rate='invscaling',
+              loss='log', max_iter=1187, n_iter_no_change=6, n_jobs=1,
+              penalty='l1', power_t=0.737110391777396, random_state=3,
+              tol=0.005188853592113476), 'preprocs': (StandardScaler(),), 'ex_preprocs': ()}
 
-Accuracy: 0.9142857142857143
+Accuracy: 0.7142857142857143
 
 Confusion matrix: 
-[[ 7  0  0]
- [ 0  4  3]
- [ 0  0 21]]
-LOOCV accuracy: 0.7785714285714286
+[[ 6  0  1]
+ [ 2  0  5]
+ [ 2  0 19]]
+LOOCV accuracy: 0.7642857142857142

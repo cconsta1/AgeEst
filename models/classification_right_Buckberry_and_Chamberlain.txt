@@ -1,14 +1,14 @@
 ---------------------------------
 Buckberry and Chamberlain
 Dataset size: 140 140
-Best classifier: {'learner': SVC(C=1.249588832236902, coef0=0.21934983651269901,
-    decision_function_shape='ovo', degree=5, gamma='auto', random_state=1,
-    shrinking=False, tol=0.0001161781899979543), 'preprocs': (StandardScaler(),), 'ex_preprocs': ()}
+Best classifier: {'learner': KNeighborsClassifier(algorithm='kd_tree', leaf_size=39, metric='manhattan',
+                     n_jobs=1, n_neighbors=13, p=4.464662240415719,
+                     weights='distance'), 'preprocs': (PCA(n_components=4, whiten=True),), 'ex_preprocs': ()}
 
-Accuracy: 0.6857142857142857
+Accuracy: 0.6285714285714286
 
 Confusion matrix: 
-[[ 4  2  1]
- [ 2  0  5]
- [ 1  0 20]]
-LOOCV accuracy: 0.7214285714285714
+[[ 2  4  1]
+ [ 1  0  6]
+ [ 0  1 20]]
+LOOCV accuracy: 0.6857142857142857

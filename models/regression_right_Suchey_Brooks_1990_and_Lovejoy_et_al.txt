@@ -1,9 +1,11 @@
 ---------------------------------
 Suchey Brooks 1990 and Lovejoy et al
 Dataset size: 140 140
-Best classifier: {'learner': SGDRegressor(alpha=1.33029475959828e-06, eta0=0.00375557457365404,
-             l1_ratio=6.911116705528295e-06, learning_rate='constant',
-             max_iter=1004, penalty='l1', power_t=0.37137837014487735,
-             random_state=4, tol=0.00013409661913978284), 'preprocs': (StandardScaler(with_mean=False, with_std=False),), 'ex_preprocs': ()}
-
-Accuracy: 0.598142241210964
+Best classifier: {'learner': GradientBoostingRegressor(alpha=0.9216471739083394, criterion='squared_error',
+                          learning_rate=0.08300894416522171,
+                          loss='absolute_error', max_leaf_nodes=5,
+                          min_impurity_decrease=0.01, n_estimators=170,
+                          random_state=4, verbose=False), 'preprocs': (StandardScaler(with_std=False),), 'ex_preprocs': ()}
+R **2 = 0.5302157371870694 (test), R**2 = 0.7095360155255653 (train)
+RMSE = 12.037085925704782
+MAE = 9.032480642712878
