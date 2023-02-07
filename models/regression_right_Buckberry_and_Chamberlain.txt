@@ -1,8 +1,9 @@
 ---------------------------------
 Buckberry and Chamberlain
 Dataset size: 140 140
-Best classifier: {'learner': KNeighborsRegressor(algorithm='kd_tree', leaf_size=26, metric='euclidean',
-                    n_jobs=1, n_neighbors=4, p=4.152249855319679), 'preprocs': (MinMaxScaler(feature_range=(-1.0, 1.0)),), 'ex_preprocs': ()}
-R **2 = 0.3250294253646644 (test), R**2 = 0.6488442336841442 (train)
-RMSE = 13.546480829246498
-MAE = 10.514285714285714
+Best classifier: {'learner': RandomForestRegressor(criterion='absolute_error', max_features='sqrt',
+                      max_leaf_nodes=15, n_estimators=262, n_jobs=1,
+                      random_state=4, verbose=False), 'preprocs': (MinMaxScaler(clip=True, feature_range=(-1.0, 1.0)),), 'ex_preprocs': ()}
+R **2 = 0.2786626979097261 (test), R**2 = 0.7174524623732168 (train)
+RMSE = 14.709700247417844
+MAE = 12.203053435114503

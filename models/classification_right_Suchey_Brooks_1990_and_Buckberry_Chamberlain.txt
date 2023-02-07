@@ -1,15 +1,13 @@
 ---------------------------------
 Suchey Brooks 1990 and Buckberry Chamberlain
 Dataset size: 140 140
-Best classifier: {'learner': SGDClassifier(alpha=0.00011698241022823114, eta0=0.0030324707975134656,
-              l1_ratio=8.118499108527841e-05, loss='huber', max_iter=1024,
-              n_jobs=1, penalty='l1', power_t=0.5911972939831873,
-              random_state=1, tol=0.00041131361892400223), 'preprocs': (MinMaxScaler(feature_range=(-1.0, 1.0)),), 'ex_preprocs': ()}
-
-Accuracy: 0.7428571428571429
-
+Best classifier: {'learner': GradientBoostingClassifier(criterion='squared_error',
+                           learning_rate=0.05981032262932699, max_depth=2,
+                           max_features=0.892865796822326, max_leaf_nodes=15,
+                           n_estimators=11, random_state=3, verbose=False), 'preprocs': (MinMaxScaler(feature_range=(0.0, 1.0)),), 'ex_preprocs': ()}
+Accuracy: 0.7142857142857143
 Confusion matrix: 
-[[ 6  1  0]
+[[ 4  0  3]
  [ 1  0  6]
- [ 0  1 20]]
-LOOCV accuracy: 0.7285714285714285
+ [ 0  0 21]]
+LOOCV accuracy: 0.7428571428571429

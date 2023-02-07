@@ -1,12 +1,9 @@
-
-
 ---------------------------------
 Suchey Brooks 1990 and Buckberry Chamberlain
 Dataset size: 140 140
-
-Accuracy: [0.5640098452568054, 0.800000011920929]
-
+Accuracy: 0.7428571428571429
 Confusion matrix: 
-[[ 7  0  0]
- [ 2  0  5]
+[[ 4  2  1]
+ [ 0  1  6]
  [ 0  0 21]]
+LOOCV accuracy: 0.7357142857142858

@@ -1,13 +1,12 @@
 ---------------------------------
 Lovejoy et al
 Dataset size: 140 140
-Best classifier: {'learner': KNeighborsClassifier(algorithm='brute', leaf_size=20, metric='manhattan',
-                     n_jobs=1, n_neighbors=14, p=1.1265950158063252), 'preprocs': (StandardScaler(with_mean=False, with_std=False),), 'ex_preprocs': ()}
-
+Best classifier: {'learner': RandomForestClassifier(bootstrap=False, class_weight='balanced_subsample',
+                       max_features=None, n_estimators=460, n_jobs=1,
+                       random_state=1, verbose=False), 'preprocs': (StandardScaler(),), 'ex_preprocs': ()}
 Accuracy: 0.8
-
 Confusion matrix: 
 [[ 5  2  0]
- [ 1  2  4]
- [ 0  0 21]]
-LOOCV accuracy: 0.7571428571428571
+ [ 0  4  3]
+ [ 0  2 19]]
+LOOCV accuracy: 0.8071428571428572

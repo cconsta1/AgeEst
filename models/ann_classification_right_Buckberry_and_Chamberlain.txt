@@ -1,12 +1,9 @@
-
-
 ---------------------------------
 Buckberry and Chamberlain
 Dataset size: 140 140
-
-Accuracy: [0.6075505018234253, 0.7714285850524902]
-
+Accuracy: 0.7428571428571429
 Confusion matrix: 
-[[ 6  0  1]
- [ 1  0  6]
+[[ 4  0  3]
+ [ 0  1  6]
  [ 0  0 21]]
+LOOCV accuracy: 0.6928571428571428

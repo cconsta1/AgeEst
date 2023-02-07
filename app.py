@@ -460,14 +460,9 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
             y_regression_tf = calculate_y_vectors("Suchey_Brooks_1990", X)
 
-            best_classifier, r2_test, r2_train, rmse, mae = regression_model_info_extractor("Suchey_Brooks_1990")
-
-            print(best_classifier, r2_test, r2_train, rmse, mae)
-
-            print("y_regression_sklearn = ", y_regression_sklearn)
-            print("y_regression_tf = ", y_regression_tf)
+            rmse, rmse_tf = regression_model_info_extractor("Suchey_Brooks_1990")
             
-            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],0)
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
                                                    y_classification_tf[0])
@@ -482,9 +477,9 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
             y_regression_tf = calculate_y_vectors("Meindl_and_Lovejoy", X)
 
-            best_classifier, r2_test, r2_train, rmse, mae = regression_model_info_extractor("Meindl_and_Lovejoy")
+            rmse, rmse_tf = regression_model_info_extractor("Meindl_and_Lovejoy")
             
-            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],0)
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
                                                    y_classification_tf[0])
@@ -497,9 +492,9 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
             y_regression_tf = calculate_y_vectors("Lovejoy_et_al", X)
             
-            best_classifier, r2_test, r2_train, rmse, mae = regression_model_info_extractor("Lovejoy_et_al")
+            rmse, rmse_tf = regression_model_info_extractor("Lovejoy_et_al")
             
-            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],0)
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
                                                    y_classification_tf[0])
@@ -512,9 +507,9 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
             y_regression_tf = calculate_y_vectors("Buckberry_and_Chamberlain", X)
 
-            best_classifier, r2_test, r2_train, rmse, mae = regression_model_info_extractor("Buckberry_and_Chamberlain")
+            rmse, rmse_tf = regression_model_info_extractor("Buckberry_and_Chamberlain")
             
-            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],0)
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
                                                    y_classification_tf[0])
@@ -528,9 +523,9 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
             y_regression_tf = calculate_y_vectors("Suchey_Brooks_1990_and_Lovejoy_et_al", X)
 
-            best_classifier, r2_test, r2_train, rmse, mae = regression_model_info_extractor("Suchey_Brooks_1990_and_Lovejoy_et_al")
+            rmse, rmse_tf = regression_model_info_extractor("Suchey_Brooks_1990_and_Lovejoy_et_al")
             
-            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],0)
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
                                                    y_classification_tf[0])
@@ -544,9 +539,9 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
             y_regression_tf = calculate_y_vectors("Suchey_Brooks_1990_and_Buckberry_Chamberlain", X)
             
-            best_classifier, r2_test, r2_train, rmse, mae = regression_model_info_extractor("Suchey_Brooks_1990_and_Buckberry_Chamberlain")
+            rmse, rmse_tf = regression_model_info_extractor("Suchey_Brooks_1990_and_Buckberry_Chamberlain")
             
-            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],0)
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
                                                    y_classification_tf[0])
@@ -563,9 +558,9 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
             y_regression_tf = calculate_y_vectors("All", X)
             
-            best_classifier, r2_test, r2_train, rmse, mae = regression_model_info_extractor("All")
+            rmse, rmse_tf = regression_model_info_extractor("All")
             
-            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],0)
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
                                                    y_classification_tf[0])
@@ -660,21 +655,22 @@ def calculate_y_vectors(model, X):
 
 def regression_model_info_extractor(variable_set):
 
-    file = "".join(["./models/regression_right_",variable_set,".txt"])
+    skelearn_file = "".join(["./models/regression_right_",variable_set,".txt"])
 
-    #print(file)
+    tf_file = "".join(["./models/ann_regression_right_",variable_set,".txt"])
+
+    #print(skelearn_file)
 
     best_classifier = ""
     r2_test, r2_train, rmse, mae = 0.0, 0.0, 0.0, 0.0
 
+    rmse_tf = 0.0
 
-    with open(file, 'r') as f:
+    with open(skelearn_file, 'r') as f:
 
         contents = f.read()
         lines = contents.split("\n")
         
-        print(contents)
-        print("****")
 
         for line in lines:
             if re.search("Best classifier", line):
@@ -705,9 +701,20 @@ def regression_model_info_extractor(variable_set):
                 numbers = [float(match) for match in matches]
                 mae = numbers[0]
                 print(mae)
+
+    with open(tf_file, 'r') as f:
+        contents = f.read()
+        lines = contents.split("\n")
+
+        for line in lines:
+            if re.search("RMSE", line):
+                matches = re.findall(r"\d+\.\d+", line)
+                numbers = [float(match) for match in matches]
+                rmse_tf = numbers[0]
+                print(rmse_tf)
     
-    return best_classifier, r2_test, r2_train, rmse, mae
+    return rmse, rmse_tf
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True, host="0.0.0.0",port="8050", use_reloader=True)
+    app.run_server(debug=True)#, host="0.0.0.0",port="8050", use_reloader=True)

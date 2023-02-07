@@ -1,8 +1,11 @@
 ---------------------------------
 All
 Dataset size: 140 140
-Best classifier: {'learner': AdaBoostRegressor(learning_rate=0.01573329397819121, loss='exponential',
-                  n_estimators=14, random_state=1), 'preprocs': (MinMaxScaler(feature_range=(-1.0, 1.0)),), 'ex_preprocs': ()}
-R **2 = 0.6765309051262951 (test), R**2 = 0.7362640089990692 (train)
-RMSE = 11.515534800416184
-MAE = 9.137148712978417
+Best classifier: {'learner': RandomForestRegressor(bootstrap=False, criterion='absolute_error', max_depth=4,
+                      max_features='sqrt', max_leaf_nodes=15,
+                      min_impurity_decrease=0.05, min_samples_leaf=4,
+                      min_samples_split=3, n_estimators=139, n_jobs=1,
+                      random_state=2, verbose=False), 'preprocs': (PCA(n_components=17),), 'ex_preprocs': ()}
+R **2 = 0.4716776032105924 (test), R**2 = 0.7803425954730813 (train)
+RMSE = 14.702299472552706
+MAE = 12.588180883864338

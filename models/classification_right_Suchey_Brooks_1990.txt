@@ -1,16 +1,13 @@
 ---------------------------------
 Suchey Brooks 1990
 Dataset size: 140 140
-Best classifier: {'learner': SGDClassifier(alpha=5.503893385623404e-06, eta0=0.005816546714752499,
-              l1_ratio=0.04016306646682203, learning_rate='invscaling',
-              loss='squared_error', max_iter=1151, n_iter_no_change=6, n_jobs=1,
-              power_t=0.3085321934199423, random_state=3,
-              tol=0.00686241146863833), 'preprocs': (PCA(n_components=1, whiten=True),), 'ex_preprocs': ()}
-
+Best classifier: {'learner': SGDClassifier(alpha=0.0009482351985922666, eta0=1.7108074489562796e-05,
+              l1_ratio=0.00017389321850763654, max_iter=1045, n_jobs=1,
+              power_t=0.38784599293595157, random_state=3,
+              tol=1.8970022894384213e-05), 'preprocs': (StandardScaler(with_std=False),), 'ex_preprocs': ()}
 Accuracy: 0.7714285714285715
-
 Confusion matrix: 
 [[ 6  0  1]
- [ 2  0  5]
+ [ 3  0  4]
  [ 0  0 21]]
 LOOCV accuracy: 0.7571428571428571

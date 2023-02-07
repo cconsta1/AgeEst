@@ -1,8 +1,8 @@
 ---------------------------------
 Suchey Brooks 1990
 Dataset size: 140 140
-Best classifier: {'learner': AdaBoostRegressor(learning_rate=0.09798870344677685, loss='exponential',
-                  n_estimators=15, random_state=0), 'preprocs': (StandardScaler(with_std=False),), 'ex_preprocs': ()}
-R **2 = 0.44686308195897584 (test), R**2 = 0.5677380336003166 (train)
-RMSE = 14.964008970589376
-MAE = 12.173915343915343
+Best classifier: {'learner': AdaBoostRegressor(learning_rate=0.01718172694067944, loss='square',
+                  n_estimators=976, random_state=2), 'preprocs': (MinMaxScaler(clip=True, feature_range=(-1.0, 1.0)),), 'ex_preprocs': ()}
+R **2 = 0.45709354045771067 (test), R**2 = 0.5484761040795298 (train)
+RMSE = 14.00054927646104
+MAE = 10.81865417875103

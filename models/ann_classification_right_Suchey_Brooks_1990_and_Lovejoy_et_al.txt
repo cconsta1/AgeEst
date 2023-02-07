@@ -1,12 +1,9 @@
-
-
 ---------------------------------
 Suchey Brooks 1990 and Lovejoy et al
 Dataset size: 140 140
-
-Accuracy: [0.543826699256897, 0.800000011920929]
-
+Accuracy: 0.8
 Confusion matrix: 
-[[ 5  1  1]
- [ 2  2  3]
+[[ 6  0  1]
+ [ 0  1  6]
  [ 0  0 21]]
+LOOCV accuracy: 0.7714285714285715
