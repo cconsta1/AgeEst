@@ -717,4 +717,4 @@ def regression_model_info_extractor(variable_set):
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True)#, host="0.0.0.0",port="8050", use_reloader=True)
+    app.run_server(debug=True, host="0.0.0.0",port="8050", use_reloader=True)
