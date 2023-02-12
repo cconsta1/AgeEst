@@ -2,10 +2,6 @@ numpy
 pandas 
 plotly 
 dash 
-gunicorn 
-tensorflow 
+gunicorn  
 dash-bootstrap-components
-scikit-learn==1.0.2
-keras 
-tensorflow
-xgboost
+scikit-learn 

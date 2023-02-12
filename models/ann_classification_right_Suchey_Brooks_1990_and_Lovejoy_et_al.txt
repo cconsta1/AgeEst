@@ -1,9 +1,16 @@
 ---------------------------------
 Suchey Brooks 1990 and Lovejoy et al
 Dataset size: 140 140
-Accuracy: 0.8
+Best classifier: {'learner': MLPClassifier(alpha=0.00041635084862043907, beta_1=0.9657785876790822,
+              beta_2=0.9661037611595992, epsilon=4.1212390096618055e-06,
+              hidden_layer_sizes=(20,), learning_rate_init=0.0385587816968616,
+              max_fun=22387, max_iter=235, momentum=0.8061380448628562,
+              n_iter_no_change=20, power_t=0.6191165240178778, random_state=0,
+              solver='lbfgs', tol=0.004338418828809132,
+              validation_fraction=0.08927936591816805), 'preprocs': (StandardScaler(with_mean=False),), 'ex_preprocs': ()}
+Accuracy: 0.8285714285714286
 Confusion matrix: 
-[[ 6  0  1]
- [ 0  1  6]
+[[ 7  0  0]
+ [ 1  1  5]
  [ 0  0 21]]
-LOOCV accuracy: 0.7714285714285715
+20-fold accuracy: 0.7857142857142856

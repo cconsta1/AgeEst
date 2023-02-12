@@ -1,9 +1,16 @@
 ---------------------------------
 Buckberry and Chamberlain
 Dataset size: 140 140
-Accuracy: 0.7428571428571429
+Best classifier: {'learner': MLPClassifier(alpha=0.0013798362489681195, beta_1=0.8427429717332454,
+              beta_2=0.9793499837952889, epsilon=6.782183444500067e-06,
+              hidden_layer_sizes=(20,), learning_rate='invscaling',
+              learning_rate_init=0.05362664460304082, max_fun=13641,
+              max_iter=259, momentum=0.9253775432649511, n_iter_no_change=30,
+              power_t=0.6932640248738308, random_state=0,
+              tol=0.00146402570692232, validation_fraction=0.07467194239359302), 'preprocs': (PCA(n_components=5),), 'ex_preprocs': ()}
+Accuracy: 0.7142857142857143
 Confusion matrix: 
-[[ 4  0  3]
- [ 0  1  6]
- [ 0  0 21]]
-LOOCV accuracy: 0.6928571428571428
+[[ 5  1  1]
+ [ 2  0  5]
+ [ 0  1 20]]
+20-fold accuracy: 0.6785714285714286

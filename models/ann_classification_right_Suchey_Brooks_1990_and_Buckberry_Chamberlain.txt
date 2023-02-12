@@ -1,9 +1,17 @@
 ---------------------------------
 Suchey Brooks 1990 and Buckberry Chamberlain
 Dataset size: 140 140
-Accuracy: 0.7428571428571429
+Best classifier: {'learner': MLPClassifier(activation='identity', alpha=0.006955315494056322,
+              beta_1=0.9623088225306029, beta_2=0.9663036837617898,
+              epsilon=7.252022518156699e-06, hidden_layer_sizes=(20,),
+              learning_rate='adaptive', learning_rate_init=0.04148831574597968,
+              max_fun=28497, max_iter=176, momentum=0.942545194846858,
+              n_iter_no_change=20, power_t=0.1383655841874363, random_state=4,
+              tol=0.004888625144812362,
+              validation_fraction=0.18432938290196849), 'preprocs': (PCA(n_components=4, whiten=True),), 'ex_preprocs': ()}
+Accuracy: 0.7714285714285715
 Confusion matrix: 
-[[ 4  2  1]
- [ 0  1  6]
+[[ 6  1  0]
+ [ 3  0  4]
  [ 0  0 21]]
-LOOCV accuracy: 0.7357142857142858
+20-fold accuracy: 0.75

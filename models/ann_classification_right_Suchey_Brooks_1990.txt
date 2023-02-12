@@ -1,9 +1,17 @@
 ---------------------------------
 Suchey Brooks 1990
 Dataset size: 140 140
+Best classifier: {'learner': MLPClassifier(activation='tanh', alpha=0.0011661384728360535,
+              beta_1=0.8236606426766148, beta_2=0.9554884823646027,
+              epsilon=8.218357495473906e-06, learning_rate='adaptive',
+              learning_rate_init=0.030086448323647045, max_fun=10541,
+              max_iter=244, momentum=0.8252375546166296, n_iter_no_change=30,
+              power_t=0.4831049925684845, random_state=4,
+              tol=0.00016570750613061573,
+              validation_fraction=0.056481210060473214), 'preprocs': (MinMaxScaler(clip=True, feature_range=(-1.0, 1.0)),), 'ex_preprocs': ()}
 Accuracy: 0.7142857142857143
 Confusion matrix: 
-[[ 4  0  3]
+[[ 4  3  0]
  [ 0  0  7]
  [ 0  0 21]]
-LOOCV accuracy: 0.7071428571428571
+20-fold accuracy: 0.7428571428571429

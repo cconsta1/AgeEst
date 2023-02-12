@@ -20,10 +20,10 @@ import pickle
 import numpy as np
 import plotly.graph_objs as go
 from dash import Input, Output, State, dcc, html
-import tensorflow as tf
-from tensorflow import keras
-from keras.models import load_model
-import xgboost
+# import tensorflow as tf
+# from tensorflow import keras
+# from keras.models import load_model
+#import xgboost
 import re
 
 
@@ -462,7 +462,7 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
 
             rmse, rmse_tf = regression_model_info_extractor("Suchey_Brooks_1990")
             
-            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],rmse_tf)
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
                                                    y_classification_tf[0])
@@ -479,7 +479,7 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
 
             rmse, rmse_tf = regression_model_info_extractor("Meindl_and_Lovejoy")
             
-            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],rmse_tf)
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
                                                    y_classification_tf[0])
@@ -494,7 +494,7 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             
             rmse, rmse_tf = regression_model_info_extractor("Lovejoy_et_al")
             
-            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],rmse_tf)
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
                                                    y_classification_tf[0])
@@ -509,7 +509,7 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
 
             rmse, rmse_tf = regression_model_info_extractor("Buckberry_and_Chamberlain")
             
-            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],rmse_tf)
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
                                                    y_classification_tf[0])
@@ -525,7 +525,7 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
 
             rmse, rmse_tf = regression_model_info_extractor("Suchey_Brooks_1990_and_Lovejoy_et_al")
             
-            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],rmse_tf)
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
                                                    y_classification_tf[0])
@@ -541,7 +541,7 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             
             rmse, rmse_tf = regression_model_info_extractor("Suchey_Brooks_1990_and_Buckberry_Chamberlain")
             
-            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],rmse_tf)
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
                                                    y_classification_tf[0])
@@ -560,7 +560,7 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             
             rmse, rmse_tf = regression_model_info_extractor("All")
             
-            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0][0],rmse_tf)
+            regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
                                                    y_classification_tf[0])
@@ -573,11 +573,11 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
 def output_classification(y_sklearn, y_tf):
 
     text = (
-        f"The sample is split into three age-groups, "
-        f"14-34 (class 0), 35-49 (class 1), and 50- (class 2). "
-        f"Using the sklearn library's classification algorithms we predict that "
-        f"for the given input the sample belongs to the {y_sklearn} class, "
-        f"and using a tensorflow neural network the prediction for the class is {y_tf}."
+        f"The sample was divided into three age groups: "
+        f"14-34 (class 0), 35-49 (class 1), and 50+ (class 2). "
+        f"Utilizing classification algorithms from the sklearn library we predict "
+        f"that the given input belongs to class {y_sklearn}. "
+        f"Additionally, our neural network predicts that the input belongs to class {y_tf}."
     )
 
     card = dbc.Card(
@@ -599,12 +599,12 @@ def output_classification(y_sklearn, y_tf):
 def output_regression(result_sklearn, rmse_sklearn, result_tf, rmse_tf):
 
     text = (
-        f"Using regression, we can make a prediction for the age directly. "
-        f"Using the sklearn library's regression algorithms we predict an age of {result_sklearn:.1f}"
+        f"We can make a direct prediction for age using regression. "
+        f"With the help of regression algorithms from the sklearn library, we predict an age of {result_sklearn:.1f}"
         f"\u00B1"
         f"{rmse_sklearn:.1f}"
-        f", and "
-        f"using a tensorflow neural network we predict {result_tf:.1f}"
+        f". "
+        f"Additionally, our neural network predicts an age of {result_tf:.1f}"
         f"\u00B1"
         f"{rmse_tf:.1f}"
     )
@@ -630,20 +630,26 @@ def calculate_y_vectors(model, X):
         pickle.load(
             open("".join(["./models/classification_right_",model,".dat"]), "rb"))
     classification_model_tf = \
-        load_model(
-            "".join(["./models/ann_classification_right_",model,".h5"]))
+        pickle.load(
+            open("".join(["./models/ann_classification_right_",model,".dat"]), "rb"))
+        
+        
+    # load_model(
+    #         "".join(["./models/ann_classification_right_",model,".h5"]))
 
     regression_model_sklearn = \
         pickle.load(
             open("".join(["./models/regression_right_",model,".dat"]), "rb"))
     regression_model_tf = \
-        load_model(
-            "".join(["./models/ann_regression_right_",model,".h5"]))
+        pickle.load(
+            open("".join(["./models/ann_regression_right_",model,".dat"]), "rb"))
+        # load_model(
+        #     "".join(["./models/ann_regression_right_",model,".h5"]))
 
     y_classification_sklearn = classification_model_sklearn.predict(X)
 
     y_classification_tf = classification_model_tf.predict(X)
-    y_classification_tf = np.argmax(y_classification_tf, axis=1)
+    #y_classification_tf = np.argmax(y_classification_tf, axis=1)
 
     y_regression_sklearn = regression_model_sklearn.predict(X)
     y_regression_tf = regression_model_tf.predict(X)

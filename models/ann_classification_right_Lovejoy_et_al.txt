@@ -1,9 +1,17 @@
 ---------------------------------
 Lovejoy et al
 Dataset size: 140 140
-Accuracy: 0.8
+Best classifier: {'learner': MLPClassifier(activation='identity', alpha=0.007888821884740403,
+              beta_1=0.9037988007792519, beta_2=0.9739918146106623,
+              epsilon=1.233568968982738e-06,
+              learning_rate_init=0.09178142853860238, max_fun=29535,
+              max_iter=270, momentum=0.9859029509207262, n_iter_no_change=20,
+              power_t=0.7946478078411516, random_state=3,
+              tol=0.009186083269769324,
+              validation_fraction=0.02832480065184169), 'preprocs': (MinMaxScaler(clip=True, feature_range=(0.0, 1.0)),), 'ex_preprocs': ()}
+Accuracy: 0.8285714285714286
 Confusion matrix: 
 [[ 7  0  0]
- [ 1  0  6]
+ [ 1  1  5]
  [ 0  0 21]]
-LOOCV accuracy: 0.7785714285714286
+20-fold accuracy: 0.7999999999999999

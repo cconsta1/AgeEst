@@ -1,9 +1,17 @@
 ---------------------------------
 All
 Dataset size: 140 140
-Accuracy: 0.6857142857142857
+Best classifier: {'learner': MLPClassifier(activation='tanh', alpha=0.004441038058541382,
+              beta_1=0.9527358121951149, beta_2=0.9799242066519736,
+              epsilon=9.89535978544575e-06, learning_rate='adaptive',
+              learning_rate_init=0.030775305216924835, max_fun=25541,
+              max_iter=273, momentum=0.9565810529873298, n_iter_no_change=20,
+              power_t=0.39730012597415304, random_state=4, solver='sgd',
+              tol=0.006128519233101691,
+              validation_fraction=0.18358166633762218), 'preprocs': (StandardScaler(with_std=False),), 'ex_preprocs': ()}
+Accuracy: 0.7142857142857143
 Confusion matrix: 
-[[ 5  2  0]
+[[ 6  1  0]
  [ 2  0  5]
  [ 0  2 19]]
-LOOCV accuracy: 0.7642857142857143
+20-fold accuracy: 0.7142857142857142
