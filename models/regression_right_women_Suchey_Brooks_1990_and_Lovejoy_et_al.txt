@@ -1,7 +1,0 @@
----------------------------------
-Suchey Brooks 1990 and Lovejoy et al
-Dataset size: 59 59
-Best classifier: {'learner': ExtraTreeRegressor(max_depth=3, max_features='log2', max_leaf_nodes=5,
-                   random_state=4, splitter='best'), 'preprocs': (Normalizer(norm='l1'),), 'ex_preprocs': ()}
-
-Accuracy: 0.3467986106594213

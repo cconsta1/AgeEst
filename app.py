@@ -11,6 +11,7 @@
  
  + 11/01/22 (cc): Created.
  + 01/25/23 (cc): Basic functional version completed
+ + 02/15/23 (cc): Remove tensorflow 
 """
 
 import time
@@ -96,7 +97,7 @@ set_of_variables = {
 
 row_1 = dbc.Row(
     [
-        dbc.Label("Right Phase Suchey",),
+        dbc.Label("Phase Suchey",),
         dbc.Input(id="row_1_Right_Phase_Suchey",
                   type="number", min=1, max=6, step=1),
         html.Hr(style={'visibility': 'hidden','clear': 'both'}),
@@ -108,7 +109,7 @@ row_1 = dbc.Row(
 
 row_2 = dbc.Row(
     [
-        dbc.Label("Right 1-midlamdoid",),
+        dbc.Label("1-midlamdoid",),
         dbc.Input(id="row_2_Right_1-midlamdoid",
                   type="number", min=0, max=3, step=1, ),
         dbc.Label("2-lambda",),
@@ -123,19 +124,19 @@ row_2 = dbc.Row(
         dbc.Label("5-bregma",),
         dbc.Input(id="row_2_5-bregma",
                   type="number", min=0, max=3, step=1, ),
-        dbc.Label("Right 6-midcoronal",),
+        dbc.Label("6-midcoronal",),
         dbc.Input(id="row_2_Right_6-midcoronal",
                   type="number", min=0, max=3, step=1, ),
-        dbc.Label("Right 7-pterion",),
+        dbc.Label("7-pterion",),
         dbc.Input(id="row_2_Right_7-pterion",
                   type="number", min=0, max=3, step=1, ),
-        dbc.Label("Right 8-sphenofrontal",),
+        dbc.Label("8-sphenofrontal",),
         dbc.Input(id="row_2_Right_8-sphenofrontal",
                   type="number", min=0, max=3, step=1, ),
-        dbc.Label("Right 9-inferior sphenotemporal",),
+        dbc.Label("9-inferior sphenotemporal",),
         dbc.Input(id="row_2_Right_9-inferior_sphenotemporal",
                   type="number", min=0, max=3, step=1, ),
-        dbc.Label("Right 10-superior sphenotemporal",),
+        dbc.Label("10-superior sphenotemporal",),
         dbc.Input(id="row_2_Right_10-superior_sphenotemporal",
                   type="number", min=0, max=3, step=1, ),
         html.Hr(style={'visibility': 'hidden','clear': 'both'}),
@@ -147,7 +148,7 @@ row_2 = dbc.Row(
 
 row_3 = dbc.Row(
     [
-        dbc.Label("Right Phase",),
+        dbc.Label("Phase",),
         dbc.Input(id="row_3_Right_Phase",
                   type="number", min=1, max=8, step=1, ),
         html.Hr(style={'visibility': 'hidden','clear': 'both'}),
@@ -160,19 +161,19 @@ row_3 = dbc.Row(
 
 row_4 = dbc.Row(
     [
-        dbc.Label("Right Transverse organization",),
+        dbc.Label("Transverse organization",),
         dbc.Input(id="row_4_Right_Transverse_organization",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Right Surface texture",),
+        dbc.Label("Surface texture",),
         dbc.Input(id="row_4_Right_Surface_texture",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Right Microposity",),
+        dbc.Label("Microposity",),
         dbc.Input(id="row_4_Right_Microposity",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Right Macroporositty",),
+        dbc.Label("Macroporositty",),
         dbc.Input(id="row_4_Right_Macroporositty",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Right Apical changes",),
+        dbc.Label("Apical changes",),
         dbc.Input(id="row_4_Right_Apical_changes",
                   type="number", min=1, max=5, step=1, ),
         html.Hr(style={'visibility': 'hidden','clear': 'both'}),
@@ -185,10 +186,10 @@ row_4 = dbc.Row(
 
 row_5 = dbc.Row(
     [
-        dbc.Label("Right Phase Suchey",),
+        dbc.Label("Phase Suchey",),
         dbc.Input(id="row_5_Right_Phase_Suchey",
                   type="number", min=1, max=6, step=1, ),
-        dbc.Label("Right Phase",),
+        dbc.Label("Phase",),
         dbc.Input(id="row_5_Right_Phase",
                   type="number", min=1, max=8, step=1, ),
         html.Hr(style={'visibility': 'hidden','clear': 'both'}),
@@ -200,22 +201,22 @@ row_5 = dbc.Row(
 
 row_6 = dbc.Row(
     [
-        dbc.Label("Right Transverse organization",),
+        dbc.Label("Transverse organization",),
         dbc.Input(id="row_6_Right_Transverse_organization",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Right Surface texture",),
+        dbc.Label("Surface texture",),
         dbc.Input(id="row_6_Right_Surface_texture",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Right Microposity",),
+        dbc.Label("Microposity",),
         dbc.Input(id="row_6_Right_Microposity",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Right Macroporositty",),
+        dbc.Label("Macroporositty",),
         dbc.Input(id="row_6_Right_Macroporositty",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Right Apical changes",),
+        dbc.Label("Apical changes",),
         dbc.Input(id="row_6_Right_Apical_changes",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Right Phase Suchey",),
+        dbc.Label("Phase Suchey",),
         dbc.Input(id="row_6_Right_Phase_Suchey",
                   type="number", min=1, max=6, step=1, ),
         html.Hr(style={'visibility': 'hidden','clear': 'both'}),
@@ -227,10 +228,10 @@ row_6 = dbc.Row(
 
 row_7 = dbc.Row(
     [
-        dbc.Label("Right Phase Suchey",),
+        dbc.Label("Phase Suchey",),
         dbc.Input(id="row_7_Right_Phase_Suchey",
                   type="number", min=1, max=6, step=1, ),
-        dbc.Label("Right 1-midlamdoid",),
+        dbc.Label("1-midlamdoid",),
         dbc.Input(id="row_7_Right_1-midlamdoid",
                   type="number", min=0, max=3, step=1, ),
         dbc.Label("2-lambda",),
@@ -245,37 +246,37 @@ row_7 = dbc.Row(
         dbc.Label("5-bregma",),
         dbc.Input(id="row_7_5-bregma",
                   type="number", min=0, max=3, step=1, ),
-        dbc.Label("Right 6-midcoronal",),
+        dbc.Label("6-midcoronal",),
         dbc.Input(id="row_7_Right_6-midcoronal",
                   type="number", min=0, max=3, step=1, ),
-        dbc.Label("Right 7-pterion",),
+        dbc.Label("7-pterion",),
         dbc.Input(id="row_7_Right_7-pterion",
                   type="number", min=0, max=3, step=1, ),
-        dbc.Label("Right 8-sphenofrontal",),
+        dbc.Label("8-sphenofrontal",),
         dbc.Input(id="row_7_Right_8-sphenofrontal",
                   type="number", min=0, max=3, step=1, ),
-        dbc.Label("Right 9-inferior sphenotemporal",),
+        dbc.Label("9-inferior sphenotemporal",),
         dbc.Input(id="row_7_Right_9-inferior_sphenotemporal",
                   type="number", min=0, max=3, step=1, ),
-        dbc.Label("Right 10-superior sphenotemporal",),
+        dbc.Label("10-superior sphenotemporal",),
         dbc.Input(id="row_7_Right_10-superior_sphenotemporal",
                   type="number", min=0, max=3, step=1, ),
-        dbc.Label("Right Phase",),
+        dbc.Label("Phase",),
         dbc.Input(id="row_7_Right_Phase",
                   type="number", min=1, max=8, step=1, ),
-        dbc.Label("Right Transverse organization",),
+        dbc.Label("Transverse organization",),
         dbc.Input(id="row_7_Right_Transverse_organization",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Right Surface texture",),
+        dbc.Label("Surface texture",),
         dbc.Input(id="row_7_Right_Surface_texture",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Right Microposity",),
+        dbc.Label("Microposity",),
         dbc.Input(id="row_7_Right_Microposity",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Right Macroporositty",),
+        dbc.Label("Macroporositty",),
         dbc.Input(id="row_7_Right_Macroporositty",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Right Apical changes",),
+        dbc.Label("Apical changes",),
         dbc.Input(id="row_7_Right_Apical_changes",
                   type="number", min=1, max=5, step=1, ),
         html.Hr(style={'visibility': 'hidden','clear': 'both'}),
@@ -318,7 +319,7 @@ sidebar = html.Div(
                         [
                             row_1
                         ],
-                        title="Brooks & Suchey 1990 (BS 1990)",
+                        title="Brooks & Suchey 1990 (BS)",
                     ),
                     dbc.AccordionItem(
                         [
@@ -342,19 +343,19 @@ sidebar = html.Div(
                         [
                             row_5
                         ],
-                        title="BS 1990 & L",
+                        title="BS & L",
                     ),
                     dbc.AccordionItem(
                         [
                             row_6
                         ],
-                        title="BS 1990 & BC",
+                        title="BS & BC",
                     ),
                     dbc.AccordionItem(
                         [
                             row_7
                         ],
-                        title="BS 1990 & ML & L & BC",
+                        title="BS & ML & L & BC",
                     )
                 ],
                 start_collapsed=True,

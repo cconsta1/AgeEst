@@ -1,17 +1,17 @@
 ---------------------------------
 All
 Dataset size: 140 140
-Best classifier: {'learner': MLPClassifier(activation='tanh', alpha=0.004441038058541382,
-              beta_1=0.9527358121951149, beta_2=0.9799242066519736,
-              epsilon=9.89535978544575e-06, learning_rate='adaptive',
-              learning_rate_init=0.030775305216924835, max_fun=25541,
-              max_iter=273, momentum=0.9565810529873298, n_iter_no_change=20,
-              power_t=0.39730012597415304, random_state=4, solver='sgd',
-              tol=0.006128519233101691,
-              validation_fraction=0.18358166633762218), 'preprocs': (StandardScaler(with_std=False),), 'ex_preprocs': ()}
+Best classifier: {'learner': MLPClassifier(activation='identity', alpha=0.0018037870009712954,
+              beta_1=0.8308001170471605, beta_2=0.9999964648251418,
+              epsilon=3.890478955215244e-06, hidden_layer_sizes=(20,),
+              learning_rate='adaptive', learning_rate_init=0.07177381375856759,
+              max_fun=29940, max_iter=315, momentum=0.9997281735386341,
+              n_iter_no_change=20, power_t=0.32671983805888705, random_state=3,
+              solver='lbfgs', tol=0.009733666651141332,
+              validation_fraction=0.055213860495899325), 'preprocs': (StandardScaler(with_mean=False),), 'ex_preprocs': ()}
 Accuracy: 0.7142857142857143
 Confusion matrix: 
 [[ 6  1  0]
  [ 2  0  5]
  [ 0  2 19]]
-20-fold accuracy: 0.7142857142857142
+20-fold accuracy: 0.7214285714285713

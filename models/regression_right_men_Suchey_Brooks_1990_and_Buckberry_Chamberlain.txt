@@ -1,7 +1,0 @@
----------------------------------
-Suchey Brooks 1990 and Buckberry Chamberlain
-Dataset size: 81 81
-Best classifier: {'learner': ExtraTreeRegressor(criterion='friedman_mse', max_features='sqrt',
-                   random_state=0), 'preprocs': (PCA(n_components=4),), 'ex_preprocs': ()}
-
-Accuracy: 0.2656081790996523

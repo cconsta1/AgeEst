@@ -1,7 +1,0 @@
----------------------------------
-Suchey Brooks 1990
-Dataset size: 81 81
-Best classifier: {'learner': KNeighborsRegressor(algorithm='brute', leaf_size=20, metric='euclidean',
-                    n_jobs=1, n_neighbors=14, p=1.6472223973110227), 'preprocs': (MinMaxScaler(feature_range=(-1.0, 1.0)),), 'ex_preprocs': ()}
-
-Accuracy: 0.2918496246238206

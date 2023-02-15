@@ -1,10 +1,10 @@
 ---------------------------------
 Lovejoy et al
 Dataset size: 140 140
-Best classifier: {'learner': SGDRegressor(alpha=7.3412226676400785e-06, eta0=6.112186719504878e-05,
-             l1_ratio=3.7046634534446556e-06, learning_rate='optimal',
-             loss='huber', max_iter=886, power_t=0.252595520614045,
-             random_state=4, tol=1.1184300447262279e-05), 'preprocs': (MinMaxScaler(clip=True, feature_range=(-1.0, 1.0)),), 'ex_preprocs': ()}
-R **2 = 0.3997744309812784 (test), R**2 = 0.53694604623245 (train)
-RMSE = 14.199293414246622
-MAE = 11.128803011150834
+Best classifier: {'learner': RandomForestRegressor(bootstrap=False, criterion='absolute_error', max_depth=3,
+                      max_features='log2', max_leaf_nodes=5,
+                      min_impurity_decrease=0.01, min_samples_leaf=2,
+                      n_estimators=12, n_jobs=1, random_state=3, verbose=False), 'preprocs': (StandardScaler(with_std=False),), 'ex_preprocs': ()}
+R **2 = 0.40174420461440885 (test), R**2 = 0.7188932839082407 (train)
+RMSE = 14.631668199002952
+MAE = 10.885714285714286

@@ -1,7 +1,0 @@
----------------------------------
-Meindl and Lovejoy
-Dataset size: 81 81
-Best classifier: {'learner': AdaBoostRegressor(learning_rate=0.011959719045226259, n_estimators=122,
-                  random_state=1), 'preprocs': (PCA(n_components=10, whiten=True),), 'ex_preprocs': ()}
-
-Accuracy: 0.14269333061331302

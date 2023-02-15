@@ -1,7 +1,0 @@
-
-
----------------------------------
-Suchey Brooks 1990 and Buckberry Chamberlain
-Dataset size: 59 59
-
-Accuracy: [206.72303771972656, 0.0]

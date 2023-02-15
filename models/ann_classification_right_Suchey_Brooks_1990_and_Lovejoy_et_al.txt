@@ -1,16 +1,17 @@
 ---------------------------------
 Suchey Brooks 1990 and Lovejoy et al
 Dataset size: 140 140
-Best classifier: {'learner': MLPClassifier(alpha=0.00041635084862043907, beta_1=0.9657785876790822,
-              beta_2=0.9661037611595992, epsilon=4.1212390096618055e-06,
-              hidden_layer_sizes=(20,), learning_rate_init=0.0385587816968616,
-              max_fun=22387, max_iter=235, momentum=0.8061380448628562,
-              n_iter_no_change=20, power_t=0.6191165240178778, random_state=0,
-              solver='lbfgs', tol=0.004338418828809132,
-              validation_fraction=0.08927936591816805), 'preprocs': (StandardScaler(with_mean=False),), 'ex_preprocs': ()}
+Best classifier: {'learner': MLPClassifier(activation='logistic', alpha=0.0037901087101898565,
+              beta_1=0.8911530543854744, beta_2=0.9820326592784081,
+              epsilon=8.644258515480028e-06, hidden_layer_sizes=(10, 10),
+              learning_rate_init=0.015253130991058647, max_fun=26504,
+              max_iter=152, momentum=0.9313533420268582, n_iter_no_change=20,
+              power_t=0.412019054231928, random_state=2,
+              tol=0.00038948451746163956,
+              validation_fraction=0.10039832559206331), 'preprocs': (StandardScaler(with_mean=False, with_std=False),), 'ex_preprocs': ()}
 Accuracy: 0.8285714285714286
 Confusion matrix: 
 [[ 7  0  0]
  [ 1  1  5]
  [ 0  0 21]]
-20-fold accuracy: 0.7857142857142856
+20-fold accuracy: 0.7785714285714285

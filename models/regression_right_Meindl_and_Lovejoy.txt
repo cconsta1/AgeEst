@@ -1,8 +1,8 @@
 ---------------------------------
 Meindl and Lovejoy
 Dataset size: 140 140
-Best classifier: {'learner': KNeighborsRegressor(algorithm='ball_tree', leaf_size=27, n_jobs=1,
-                    n_neighbors=1, p=4.994031948885529), 'preprocs': (MinMaxScaler(clip=True, feature_range=(0.0, 1.0)),), 'ex_preprocs': ()}
-R **2 = -0.9378030625265845 (test), R**2 = 0.3306737588652482 (train)
-RMSE = 27.272696969680133
-MAE = 22.314285714285713
+Best classifier: {'learner': ExtraTreeRegressor(criterion='friedman_mse', max_features='log2',
+                   max_leaf_nodes=15, random_state=1, splitter='best'), 'preprocs': (StandardScaler(with_mean=False, with_std=False),), 'ex_preprocs': ()}
+R **2 = -0.1183859888983474 (test), R**2 = 0.5435690887044262 (train)
+RMSE = 18.998328398970397
+MAE = 14.778966721823865

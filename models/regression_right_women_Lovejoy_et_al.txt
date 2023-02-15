@@ -1,8 +1,0 @@
----------------------------------
-Lovejoy et al
-Dataset size: 59 59
-Best classifier: {'learner': KNeighborsRegressor(algorithm='brute', leaf_size=34, metric='cityblock',
-                    n_jobs=1, n_neighbors=4, p=2.024177243491121,
-                    weights='distance'), 'preprocs': (StandardScaler(with_mean=False),), 'ex_preprocs': ()}
-
-Accuracy: -0.05961461022810721

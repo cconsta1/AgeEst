@@ -1,17 +1,17 @@
 ---------------------------------
 Meindl and Lovejoy
 Dataset size: 140 140
-Best classifier: {'learner': MLPClassifier(activation='identity', alpha=0.0017893961349955139,
-              beta_1=0.8120661393066152, beta_2=0.9848215178951898,
-              epsilon=7.466114747734495e-06, hidden_layer_sizes=(10, 10),
-              learning_rate_init=0.048556142949039094, max_fun=20396,
-              max_iter=254, momentum=0.8455372036522589, n_iter_no_change=30,
-              power_t=0.7796736921110702, random_state=1, solver='sgd',
-              tol=0.007026905109325465,
-              validation_fraction=0.15163797733143308), 'preprocs': (StandardScaler(with_mean=False, with_std=False),), 'ex_preprocs': ()}
-Accuracy: 0.6
+Best classifier: {'learner': MLPClassifier(alpha=0.008525468676927075, beta_1=0.9701281293278056,
+              beta_2=0.9585042845104961, epsilon=2.950223082436124e-06,
+              hidden_layer_sizes=(20,), learning_rate='adaptive',
+              learning_rate_init=0.007939989385363265, max_fun=14452,
+              max_iter=273, momentum=0.8263556373925751, n_iter_no_change=20,
+              power_t=0.1206884740131967, random_state=2,
+              tol=0.009134756674498392,
+              validation_fraction=0.09046680603890102), 'preprocs': (MinMaxScaler(clip=True, feature_range=(0.0, 1.0)),), 'ex_preprocs': ()}
+Accuracy: 0.5428571428571428
 Confusion matrix: 
-[[ 5  2  0]
- [ 0  1  6]
- [ 3  3 15]]
-20-fold accuracy: 0.6428571428571428
+[[ 0  6  1]
+ [ 0  0  7]
+ [ 1  1 19]]
+20-fold accuracy: 0.657142857142857

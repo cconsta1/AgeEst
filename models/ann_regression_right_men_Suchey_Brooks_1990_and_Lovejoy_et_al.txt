@@ -1,7 +1,0 @@
-
-
----------------------------------
-Suchey Brooks 1990 and Lovejoy et al
-Dataset size: 81 81
-
-Accuracy: [80.16587829589844, 0.0]

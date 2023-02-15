@@ -1,9 +1,8 @@
 ---------------------------------
 Buckberry and Chamberlain
 Dataset size: 140 140
-Best classifier: {'learner': RandomForestRegressor(criterion='absolute_error', max_features='sqrt',
-                      max_leaf_nodes=15, n_estimators=262, n_jobs=1,
-                      random_state=4, verbose=False), 'preprocs': (MinMaxScaler(clip=True, feature_range=(-1.0, 1.0)),), 'ex_preprocs': ()}
-R **2 = 0.2786626979097261 (test), R**2 = 0.7174524623732168 (train)
-RMSE = 14.709700247417844
-MAE = 12.203053435114503
+Best classifier: {'learner': AdaBoostRegressor(learning_rate=9.333720870051423e-05, n_estimators=11,
+                  random_state=4), 'preprocs': (PCA(n_components=5),), 'ex_preprocs': ()}
+R **2 = 0.4653194546755477 (test), R**2 = 0.7094350258922031 (train)
+RMSE = 14.103758469776452
+MAE = 11.624370143314243

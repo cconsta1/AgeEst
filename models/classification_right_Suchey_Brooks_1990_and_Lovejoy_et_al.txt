@@ -1,12 +1,13 @@
 ---------------------------------
 Suchey Brooks 1990 and Lovejoy et al
 Dataset size: 140 140
-Best classifier: {'learner': GradientBoostingClassifier(learning_rate=0.026538402828929143,
-                           max_features=0.718466874275357, n_estimators=21,
-                           random_state=4, verbose=False), 'preprocs': (MinMaxScaler(clip=True, feature_range=(0.0, 1.0)),), 'ex_preprocs': ()}
-Accuracy: 0.7428571428571429
+Best classifier: {'learner': RandomForestClassifier(bootstrap=False, class_weight='balanced_subsample',
+                       criterion='entropy', max_depth=4, max_features='log2',
+                       min_impurity_decrease=0.02, n_estimators=14, n_jobs=1,
+                       random_state=1, verbose=False), 'preprocs': (StandardScaler(with_mean=False),), 'ex_preprocs': ()}
+Accuracy: 0.8
 Confusion matrix: 
-[[ 4  3  0]
- [ 0  1  6]
- [ 0  0 21]]
-LOOCV accuracy: 0.8
+[[ 6  1  0]
+ [ 1  4  2]
+ [ 0  3 18]]
+LOOCV accuracy: 0.8142857142857143

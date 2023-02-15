@@ -1,6 +1,0 @@
----------------------------------
-Buckberry and Chamberlain
-Dataset size: 81 81
-Best classifier: {'learner': ExtraTreeRegressor(max_features=0.25050296406348904, random_state=2), 'preprocs': (PCA(n_components=4),), 'ex_preprocs': ()}
-
-Accuracy: 0.42854534464230876

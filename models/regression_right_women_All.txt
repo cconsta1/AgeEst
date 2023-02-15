@@ -1,7 +1,0 @@
----------------------------------
-All
-Dataset size: 59 59
-Best classifier: {'learner': AdaBoostRegressor(learning_rate=0.003474939601855072, n_estimators=11,
-                  random_state=2), 'preprocs': (StandardScaler(with_std=False),), 'ex_preprocs': ()}
-
-Accuracy: 0.7300737078461711
