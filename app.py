@@ -186,10 +186,10 @@ row_4 = dbc.Row(
 
 row_5 = dbc.Row(
     [
-        dbc.Label("Phase Suchey",),
+        dbc.Label("Phase BS",),
         dbc.Input(id="row_5_Right_Phase_Suchey",
                   type="number", min=1, max=6, step=1, ),
-        dbc.Label("Phase",),
+        dbc.Label("Phase L",),
         dbc.Input(id="row_5_Right_Phase",
                   type="number", min=1, max=8, step=1, ),
         html.Hr(style={'visibility': 'hidden','clear': 'both'}),
@@ -216,7 +216,7 @@ row_6 = dbc.Row(
         dbc.Label("Apical changes",),
         dbc.Input(id="row_6_Right_Apical_changes",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Phase Suchey",),
+        dbc.Label("Phase BS",),
         dbc.Input(id="row_6_Right_Phase_Suchey",
                   type="number", min=1, max=6, step=1, ),
         html.Hr(style={'visibility': 'hidden','clear': 'both'}),
@@ -228,7 +228,7 @@ row_6 = dbc.Row(
 
 row_7 = dbc.Row(
     [
-        dbc.Label("Phase Suchey",),
+        dbc.Label("Phase BS",),
         dbc.Input(id="row_7_Right_Phase_Suchey",
                   type="number", min=1, max=6, step=1, ),
         dbc.Label("1-midlamdoid",),
@@ -261,7 +261,7 @@ row_7 = dbc.Row(
         dbc.Label("10-superior sphenotemporal",),
         dbc.Input(id="row_7_Right_10-superior_sphenotemporal",
                   type="number", min=0, max=3, step=1, ),
-        dbc.Label("Phase",),
+        dbc.Label("Phase L",),
         dbc.Input(id="row_7_Right_Phase",
                   type="number", min=1, max=8, step=1, ),
         dbc.Label("Transverse organization",),
