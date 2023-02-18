@@ -1,15 +1,12 @@
 ---------------------------------
 Meindl and Lovejoy
 Dataset size: 140 140
-Best classifier: {'learner': XGBClassifier(colsample_bylevel=0.6526948678942476,
-              colsample_bytree=0.7518316562964007, gamma=0.002751315285979735,
-              learning_rate=7.874861444634851e-05, max_depth=6, missing=nan,
-              n_estimators=3800, objective='multi:softprob',
-              reg_alpha=0.00971816544756308, reg_lambda=1.3567963783833474,
-              seed=0, subsample=0.5752767696388579, use_label_encoder=False), 'preprocs': (StandardScaler(with_mean=False, with_std=False),), 'ex_preprocs': ()}
-Accuracy: 0.6285714285714286
+Best classifier: {'learner': KNeighborsClassifier(algorithm='kd_tree', leaf_size=36, metric='manhattan',
+                     n_jobs=1, n_neighbors=11, p=3.8234447800995115,
+                     weights='distance'), 'preprocs': (PCA(n_components=10),), 'ex_preprocs': ()}
+Accuracy: 0.45714285714285713
 Confusion matrix: 
-[[ 3  2  2]
+[[ 4  2  1]
  [ 3  0  4]
- [ 2  0 19]]
-LOOCV accuracy: 0.6857142857142857
+ [ 4  5 12]]
+LOOCV accuracy: 0.6642857142857143

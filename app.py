@@ -97,7 +97,7 @@ set_of_variables = {
 
 row_1 = dbc.Row(
     [
-        dbc.Label("Phase Suchey",),
+        dbc.Label("Phase BS",),
         dbc.Input(id="row_1_Right_Phase_Suchey",
                   type="number", min=1, max=6, step=1),
         html.Hr(style={'visibility': 'hidden','clear': 'both'}),
@@ -148,7 +148,7 @@ row_2 = dbc.Row(
 
 row_3 = dbc.Row(
     [
-        dbc.Label("Phase",),
+        dbc.Label("Phase L",),
         dbc.Input(id="row_3_Right_Phase",
                   type="number", min=1, max=8, step=1, ),
         html.Hr(style={'visibility': 'hidden','clear': 'both'}),
@@ -459,14 +459,14 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             X = [[input1_1]]
 
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
-            y_regression_tf = calculate_y_vectors("Suchey_Brooks_1990", X)
+            y_regression_tf, y_proba_sklearn, y_proba_tf = calculate_y_vectors("Suchey_Brooks_1990", X)
 
             rmse, rmse_tf = regression_model_info_extractor("Suchey_Brooks_1990")
             
             regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
-                                                   y_classification_tf[0])
+                                                   y_classification_tf[0], y_proba_sklearn, y_proba_tf)
 
             return classification, regression
 
@@ -476,14 +476,14 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
                   input2_6, input2_7, input2_8, input2_9, input2_10]]
             
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
-            y_regression_tf = calculate_y_vectors("Meindl_and_Lovejoy", X)
+            y_regression_tf, y_proba_sklearn, y_proba_tf = calculate_y_vectors("Meindl_and_Lovejoy", X)
 
             rmse, rmse_tf = regression_model_info_extractor("Meindl_and_Lovejoy")
             
             regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
-                                                   y_classification_tf[0])
+                                                   y_classification_tf[0], y_proba_sklearn, y_proba_tf)
             
             return classification, regression
             
@@ -491,14 +491,14 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             X = [[input3_1]]
             
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
-            y_regression_tf = calculate_y_vectors("Lovejoy_et_al", X)
+            y_regression_tf, y_proba_sklearn, y_proba_tf = calculate_y_vectors("Lovejoy_et_al", X)
             
             rmse, rmse_tf = regression_model_info_extractor("Lovejoy_et_al")
             
             regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
-                                                   y_classification_tf[0])
+                                                   y_classification_tf[0], y_proba_sklearn, y_proba_tf)
             
             return classification, regression
 
@@ -506,14 +506,14 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             X = [[input4_1, input4_2, input4_3, input4_4, input4_5]]
             
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
-            y_regression_tf = calculate_y_vectors("Buckberry_and_Chamberlain", X)
+            y_regression_tf, y_proba_sklearn, y_proba_tf = calculate_y_vectors("Buckberry_and_Chamberlain", X)
 
             rmse, rmse_tf = regression_model_info_extractor("Buckberry_and_Chamberlain")
             
             regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
-                                                   y_classification_tf[0])
+                                                   y_classification_tf[0], y_proba_sklearn, y_proba_tf)
             
             return classification, regression
             
@@ -522,14 +522,14 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             X = [[input5_1, input5_2]]
             
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
-            y_regression_tf = calculate_y_vectors("Suchey_Brooks_1990_and_Lovejoy_et_al", X)
+            y_regression_tf, y_proba_sklearn, y_proba_tf = calculate_y_vectors("Suchey_Brooks_1990_and_Lovejoy_et_al", X)
 
             rmse, rmse_tf = regression_model_info_extractor("Suchey_Brooks_1990_and_Lovejoy_et_al")
             
             regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
-                                                   y_classification_tf[0])
+                                                   y_classification_tf[0], y_proba_sklearn, y_proba_tf)
             
             return classification, regression
    
@@ -538,14 +538,14 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
             X = [[input6_1, input6_2, input6_3, input6_4, input6_5, input6_6]]
             
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
-            y_regression_tf = calculate_y_vectors("Suchey_Brooks_1990_and_Buckberry_Chamberlain", X)
+            y_regression_tf, y_proba_sklearn, y_proba_tf = calculate_y_vectors("Suchey_Brooks_1990_and_Buckberry_Chamberlain", X)
             
             rmse, rmse_tf = regression_model_info_extractor("Suchey_Brooks_1990_and_Buckberry_Chamberlain")
             
             regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
-                                                   y_classification_tf[0])
+                                                   y_classification_tf[0], y_proba_sklearn, y_proba_tf)
             
             return classification, regression
             
@@ -557,28 +557,33 @@ def process_input(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_click
                     input7_14, input7_15, input7_16, input7_17]]
             
             y_classification_sklearn, y_classification_tf, y_regression_sklearn, \
-            y_regression_tf = calculate_y_vectors("All", X)
+            y_regression_tf, y_proba_sklearn, y_proba_tf = calculate_y_vectors("All", X)
             
             rmse, rmse_tf = regression_model_info_extractor("All")
             
             regression = output_regression(y_regression_sklearn[0],rmse,y_regression_tf[0],rmse_tf)
 
             classification = output_classification(y_classification_sklearn[0], \
-                                                   y_classification_tf[0])
+                                                   y_classification_tf[0], y_proba_sklearn, y_proba_tf)
             
             return classification, regression
 
     return "Welcome to AgeEst, a skeletal age-at-death estimation tool", "Please enter your selection on the sidebar to get started"
 
 
-def output_classification(y_sklearn, y_tf):
+def output_classification(y_sklearn, y_tf, y_proba_sklearn, y_proba_tf):
 
     text = (
         f"The sample was divided into three age groups: "
         f"14-34 (class 0), 35-49 (class 1), and 50+ (class 2). "
         f"Utilizing classification algorithms from the sklearn library we predict "
-        f"that the given input belongs to class {y_sklearn}. "
-        f"Additionally, our neural network predicts that the input belongs to class {y_tf}."
+        f"that the given input belongs to class {y_sklearn}, "
+        f"with the following probabilities for each class: {y_proba_sklearn[0][0]*100:.2f}% for class 0, "
+        f"{y_proba_sklearn[0][1]*100:.2f}% for class 1, and {y_proba_sklearn[0][2]*100:.2f}% for class 2. "
+        f"Additionally, using a neural network from the sklearn library, we predict that the input "
+        f"belongs to class {y_tf}, "
+        f"with the following probabilities for each class: {y_proba_tf[0][0]*100:.2f}% for class 0, "
+        f"{y_proba_tf[0][1]*100:.2f}% for class 1, and {y_proba_tf[0][2]*100:.2f}% for class 2."
     )
 
     card = dbc.Card(
@@ -649,14 +654,23 @@ def calculate_y_vectors(model, X):
 
     y_classification_sklearn = classification_model_sklearn.predict(X)
 
+    y_proba_sklearn = classification_model_sklearn.predict_proba(X)
+
+    
+
     y_classification_tf = classification_model_tf.predict(X)
+
+    y_proba_tf = classification_model_tf.predict_proba(X)
+
+     
     #y_classification_tf = np.argmax(y_classification_tf, axis=1)
 
     y_regression_sklearn = regression_model_sklearn.predict(X)
     y_regression_tf = regression_model_tf.predict(X)
 
     return y_classification_sklearn, y_classification_tf, \
-        y_regression_sklearn, y_regression_tf
+        y_regression_sklearn, y_regression_tf, \
+        y_proba_sklearn, y_proba_tf
 
 
 
@@ -687,27 +701,27 @@ def regression_model_info_extractor(variable_set):
                 if match:
                     extracted_text = match.group(1)
                     best_classifier = extracted_text
-                    print(best_classifier)
-                else:
-                    print("No match found")
+                    #print(best_classifier)
+                # else:
+                #     #print("No match found")
 
             if re.search("(test)", line):
                 matches = re.findall(r"\d+\.\d+", line)
                 numbers = [float(match) for match in matches]
                 r2_test, r2_train = numbers
-                print(r2_test, r2_train)
+                #print(r2_test, r2_train)
 
             if re.search("RMSE", line):
                 matches = re.findall(r"\d+\.\d+", line)
                 numbers = [float(match) for match in matches]
                 rmse = numbers[0]
-                print(rmse)
+                #print(rmse)
 
             if re.search("MAE", line):
                 matches = re.findall(r"\d+\.\d+", line)
                 numbers = [float(match) for match in matches]
                 mae = numbers[0]
-                print(mae)
+                #print(mae)
 
     with open(tf_file, 'r') as f:
         contents = f.read()
@@ -718,10 +732,11 @@ def regression_model_info_extractor(variable_set):
                 matches = re.findall(r"\d+\.\d+", line)
                 numbers = [float(match) for match in matches]
                 rmse_tf = numbers[0]
-                print(rmse_tf)
+                #print(rmse_tf)
     
     return rmse, rmse_tf
 
 
 if __name__ == "__main__":
     app.run_server(debug=True, host="0.0.0.0",port="8050", use_reloader=True)
+    #app.run_server(debug=True)
