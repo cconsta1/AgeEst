@@ -575,12 +575,12 @@ def output_classification(y_sklearn, y_tf, y_proba_sklearn, y_proba_tf):
 
     text = (
         f"The sample was divided into three age groups: "
-        f"14-34 (class 0), 35-49 (class 1), and 50+ (class 2). "
-        f"Utilizing classification algorithms from the sklearn library we predict "
-        f"that the given input belongs to class {y_sklearn}, "
+        f"18-34 (class 0), 35-49 (class 1), and 50+ (class 2). "
+        f"Utilizing classification algorithms from the sklearn library, we predict "
+        f"that the individual belongs to class {y_sklearn}, "
         f"with the following probabilities for each class: {y_proba_sklearn[0][0]*100:.2f}% for class 0, "
         f"{y_proba_sklearn[0][1]*100:.2f}% for class 1, and {y_proba_sklearn[0][2]*100:.2f}% for class 2. "
-        f"Additionally, using a neural network from the sklearn library, we predict that the input "
+        f"Additionally, using a neural network from the sklearn library, we predict that the individual "
         f"belongs to class {y_tf}, "
         f"with the following probabilities for each class: {y_proba_tf[0][0]*100:.2f}% for class 0, "
         f"{y_proba_tf[0][1]*100:.2f}% for class 1, and {y_proba_tf[0][2]*100:.2f}% for class 2."
@@ -605,14 +605,12 @@ def output_classification(y_sklearn, y_tf, y_proba_sklearn, y_proba_tf):
 def output_regression(result_sklearn, rmse_sklearn, result_tf, rmse_tf):
 
     text = (
-        f"We can make a direct prediction for age using regression. "
-        f"With the help of regression algorithms from the sklearn library, we predict an age of {result_sklearn:.1f}"
+        f"Using regression algorithms from the sklearn library, we predict an age of {result_sklearn:.1f}"
         f"\u00B1"
-        f"{rmse_sklearn:.1f}"
-        f". "
+        f"{rmse_sklearn:.1f} years."
         f"Additionally, our neural network predicts an age of {result_tf:.1f}"
         f"\u00B1"
-        f"{rmse_tf:.1f}"
+        f"{rmse_tf:.1f} years."
     )
 
     card = dbc.Card(
@@ -638,6 +636,7 @@ def calculate_y_vectors(model, X):
     classification_model_tf = \
         pickle.load(
             open("".join(["./models/ann_classification_right_",model,".dat"]), "rb"))
+
         
         
     # load_model(

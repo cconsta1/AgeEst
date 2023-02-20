@@ -1,8 +1,10 @@
 ---------------------------------
 Suchey Brooks 1990 and Buckberry Chamberlain
 Dataset size: 140 140
-Best classifier: {'learner': SVR(C=0.8209129775569551, coef0=0.7138817232559245, epsilon=0.087592184674948,
-    kernel='poly', shrinking=False, tol=0.0062256493609233075), 'preprocs': (StandardScaler(with_mean=False),), 'ex_preprocs': ()}
-R **2 = 0.4102096285282725 (test), R**2 = 0.6879951947792603 (train)
-RMSE = 14.199184108710673
-MAE = 10.860294195348489
+Best classifier: {'learner': SGDRegressor(alpha=1.0559443657729192e-05, eta0=0.011396275512687714,
+             l1_ratio=6.6161219960166465e-06, learning_rate='adaptive',
+             max_iter=1097, penalty='l1', power_t=0.2887837549729618,
+             random_state=2, tol=0.0003029671766701653), 'preprocs': (MinMaxScaler(feature_range=(-1.0, 1.0)),), 'ex_preprocs': ()}
+R **2 = 0.340813305859031 (test), R**2 = 0.7017890825748678 (train)
+RMSE = 14.297589249923908
+MAE = 11.618295134470268
