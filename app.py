@@ -607,7 +607,7 @@ def output_regression(result_sklearn, rmse_sklearn, result_tf, rmse_tf):
     text = (
         f"Using regression algorithms from the sklearn library, we predict an age of {result_sklearn:.1f}"
         f"\u00B1"
-        f"{rmse_sklearn:.1f} years."
+        f"{rmse_sklearn:.1f} years. "
         f"Additionally, our neural network predicts an age of {result_tf:.1f}"
         f"\u00B1"
         f"{rmse_tf:.1f} years."
