@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the AgeEst paper."
+title: "AgeEst"
+type: software
+url: "https://ageest.onrender.com/"
+repository-code: "https://github.com/cconsta1/AgeEst"
+keywords:
+  - forensic anthropology
+  - age estimation
+  - machine learning
+  - dash
+  - plotly
+  - scikit-learn
+authors:
+  - family-names: "Constantinou"
+    given-names: "Chrysovalantis"
+  - family-names: "Chovalopoulou"
+    given-names: "Maria-Eleni"
+  - family-names: "Nikita"
+    given-names: "Efthymia"
+preferred-citation:
+  type: article
+  title: "AgeEst: an open access web application for skeletal age-at-death estimation employing machine learning"
+  authors:
+    - family-names: "Constantinou"
+      given-names: "Chrysovalantis"
+    - family-names: "Chovalopoulou"
+      given-names: "Maria-Eleni"
+    - family-names: "Nikita"
+      given-names: "Efthymia"
+  journal: "Forensic Science International: Reports"
+  year: 2023
+  volume: 7
+  pages: "100317"
+  doi: "10.1016/j.fsir.2023.100317"
