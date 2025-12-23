@@ -34,9 +34,10 @@ The app reports two outputs:
 - **Regression**: a point prediction (years) with an uncertainty term shown as $\pm\mathrm{RMSE}$.
 	- RMSE values are parsed from the corresponding `models/*_regression_right_<method>.txt` files.
 
-## Supported input methods (right side)
 
-In the UI sidebar you can select one of the following variable sets. Each selection maps to a matching pair of classification + regression models.
+## Supported input methods (left sidebar)
+
+In the UI left sidebar you can select one of the following variable sets. Each selection maps to a matching pair of classification + regression models.
 
 These correspond to commonly adopted markers based on the morphology of the pubic symphysis, iliac auricular surface, and cranial sutures, as described in the associated publication.
 
@@ -74,6 +75,10 @@ These correspond to commonly adopted markers based on the morphology of the pubi
 - [setup.yml](setup.yml): pinned conda environment used for the Dash app
 - [requirements.txt](requirements.txt): pip requirements (used by Dockerfile)
 - [Dockerfile](Dockerfile): container build/run configuration (Gunicorn)
+
+What is `setup.yml`?
+
+`setup.yml` is a Conda environment specification that pins the major runtime versions used to develop and test this app (for example `python=3.10.8` and specific versions of `numpy`, `pandas`, `plotly`, `dash`, and `scikit-learn`). Using `conda env create -f setup.yml` will create an environment that closely matches the developer environment and is the recommended way to reproduce the runtime used during development.
 
 ## Run locally (recommended: conda)
 
@@ -157,33 +162,10 @@ BibTeX:
 }
 ```
 
-## Suggested GitHub repository metadata
-
-GitHub “About” (suggested):
-
-> Dash/Plotly web application for deploying machine learning models for skeletal age-at-death estimation.
-
-GitHub Topics (suggested):
-
-- python
-- docker
-- data-science
-- machine-learning
-- gunicorn
-- web-application
-- dash-plotly
-
-Additional keywords from the paper (optional):
-
-- forensic-anthropology
-- pubic-symphysis
-- auricular-surface
-- cranial-sutures
-
 ## Contributing data
 
 To improve generalizability (and to help address issues like age mimicry and middle-age misclassification), the authors invite colleagues to share raw data from other skeletal collections so the training dataset can be expanded. If you have relevant datasets and are interested in collaborating, please open an issue describing what variables you have recorded and under what sharing constraints.
 
 ## License
 
-No license file is included in this repository. If you intend this project to be reused, redistributed, or deployed by others, consider adding an explicit license.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
