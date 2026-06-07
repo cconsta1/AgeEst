@@ -1,3 +1,6 @@
+> **Live app (primary):** https://ageest.onrender.com/
+> The original CyI-hosted instance (http://ageest.hpcf.cyi.ac.cy/) is currently experiencing downtime. Use the Render link above.
+
 # AgeEst
 
 Dash/Plotly web application for deploying machine learning models for skeletal age-at-death estimation.
