@@ -58,8 +58,8 @@ set_of_variables = {
     "Buckberry and Chamberlain": [
         'Right Transverse organization',
         'Right Surface texture',
-        'Right Microposity',
-        'Right Macroporositty',
+        'Right Microporosity',
+        'Right Macroporosity',
         'Right Apical changes'
     ],
     "Suchey Brooks 1990 and Lovejoy et al": [
@@ -69,8 +69,8 @@ set_of_variables = {
     "Suchey Brooks 1990 and Buckberry Chamberlain": [
         'Right Transverse organization',
         'Right Surface texture',
-        'Right Microposity',
-        'Right Macroporositty',
+        'Right Microporosity',
+        'Right Macroporosity',
         'Right Apical changes',
         'Right Phase Suchey'
     ],
@@ -89,8 +89,8 @@ set_of_variables = {
         "Right Phase",
         'Right Transverse organization',
         'Right Surface texture',
-        'Right Microposity',
-        'Right Macroporositty',
+        'Right Microporosity',
+        'Right Macroporosity',
         'Right Apical changes'
     ]
 }
@@ -167,11 +167,11 @@ row_4 = dbc.Row(
         dbc.Label("Surface texture",),
         dbc.Input(id="row_4_Right_Surface_texture",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Microposity",),
-        dbc.Input(id="row_4_Right_Microposity",
+        dbc.Label("Microporosity",),
+        dbc.Input(id="row_4_Right_Microporosity",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Macroporositty",),
-        dbc.Input(id="row_4_Right_Macroporositty",
+        dbc.Label("Macroporosity",),
+        dbc.Input(id="row_4_Right_Macroporosity",
                   type="number", min=1, max=5, step=1, ),
         dbc.Label("Apical changes",),
         dbc.Input(id="row_4_Right_Apical_changes",
@@ -207,11 +207,11 @@ row_6 = dbc.Row(
         dbc.Label("Surface texture",),
         dbc.Input(id="row_6_Right_Surface_texture",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Microposity",),
-        dbc.Input(id="row_6_Right_Microposity",
+        dbc.Label("Microporosity",),
+        dbc.Input(id="row_6_Right_Microporosity",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Macroporositty",),
-        dbc.Input(id="row_6_Right_Macroporositty",
+        dbc.Label("Macroporosity",),
+        dbc.Input(id="row_6_Right_Macroporosity",
                   type="number", min=1, max=5, step=1, ),
         dbc.Label("Apical changes",),
         dbc.Input(id="row_6_Right_Apical_changes",
@@ -270,11 +270,11 @@ row_7 = dbc.Row(
         dbc.Label("Surface texture",),
         dbc.Input(id="row_7_Right_Surface_texture",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Microposity",),
-        dbc.Input(id="row_7_Right_Microposity",
+        dbc.Label("Microporosity",),
+        dbc.Input(id="row_7_Right_Microporosity",
                   type="number", min=1, max=5, step=1, ),
-        dbc.Label("Macroporositty",),
-        dbc.Input(id="row_7_Right_Macroporositty",
+        dbc.Label("Macroporosity",),
+        dbc.Input(id="row_7_Right_Macroporosity",
                   type="number", min=1, max=5, step=1, ),
         dbc.Label("Apical changes",),
         dbc.Input(id="row_7_Right_Apical_changes",
@@ -286,23 +286,32 @@ row_7 = dbc.Row(
     id="row_7"
 )
 
+PAGE_STYLE = {
+    "display": "flex",
+    "align-items": "flex-start",
+}
+
 SIDEBAR_STYLE = {
-    "position": "absolute",
-    "top": 0,
-    "left": 0,
-    "bottom": 0,
-    "height": "126rem",
+    "flex": "0 0 16rem",
     "width": "16rem",
     "padding": "2rem 1rem",
     "background-color": "#f8f9fa",
-    "overflow": "hidden"
+    "min-height": "100vh",
 }
 
-CONTENT_STYLE = {
-    "position": "fixed",
-    "margin-left": "18rem",
-    "margin-right": "2rem",
-    "padding": "2rem 1rem",
+MAIN_STYLE = {
+    "flex": "1 1 auto",
+    "min-width": "0",
+    "min-height": "100vh",
+    "display": "flex",
+    "flex-direction": "column",
+    "padding": "2rem 2rem",
+}
+
+FOOTER_STYLE = {
+    "margin-top": "auto",
+    "padding-top": "1.5rem",
+    "border-top": "1px solid #dee2e6",
 }
 
 sidebar = html.Div(
@@ -359,6 +368,7 @@ sidebar = html.Div(
                     )
                 ],
                 start_collapsed=True,
+                always_open=False,
                 flush=True
                 ),
             ],
@@ -370,17 +380,74 @@ sidebar = html.Div(
 )
 
 content = html.Div(
-    style=CONTENT_STYLE,
     children=[
         html.H1('Output'),
         html.Hr(style={'visibility': 'hidden','clear': 'both'}),
-        dbc.Row(id="page-content"),
-        html.Hr(style={'visibility': 'hidden','clear': 'both'}),
-        dbc.Row(id="ann-models")
+        dcc.Loading(
+            type="circle",
+            color="#2c6e63",
+            children=[
+                dbc.Row(id="page-content"),
+                html.Hr(style={'visibility': 'hidden','clear': 'both'}),
+                dbc.Row(id="ann-models"),
+            ],
+        ),
     ]
 )
 
-app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
+CITATION_APA = (
+    "Constantinou, C., Chovalopoulou, M. E., & Nikita, E. (2023). AgeEst: "
+    "an open access web application for skeletal age-at-death estimation "
+    "employing machine learning. Forensic Science International: Reports, "
+    "7, 100317. https://doi.org/10.1016/j.fsir.2023.100317"
+)
+
+footer = html.Div(
+    [
+        html.P(
+            [
+                html.A("Paper", href="https://doi.org/10.1016/j.fsir.2023.100317",
+                       target="_blank", rel="noopener noreferrer"),
+                " · ",
+                html.A("GitHub", href="https://github.com/cconsta1/AgeEst",
+                       target="_blank", rel="noopener noreferrer"),
+                " · ",
+                html.A("Notebooks", href="https://github.com/cconsta1/age-estimation-notebook",
+                       target="_blank", rel="noopener noreferrer"),
+                " · ",
+                html.A("MIT License", href="https://github.com/cconsta1/AgeEst/blob/main/LICENSE",
+                       target="_blank", rel="noopener noreferrer"),
+            ],
+            className="mb-2 small text-muted",
+        ),
+        html.P("Cite this work", className="mb-1 small fw-bold text-muted"),
+        html.Div(
+            [
+                html.Span(CITATION_APA, className="small"),
+                dcc.Clipboard(
+                    content=CITATION_APA,
+                    title="Copy citation",
+                    style={"cursor": "pointer", "flex": "0 0 auto"},
+                ),
+            ],
+            className="d-flex align-items-start gap-2 p-2",
+            style={"background-color": "#f8f9fa", "border-radius": "0.375rem"},
+        ),
+    ],
+    style=FOOTER_STYLE,
+)
+
+main_column = html.Div(
+    [content, footer],
+    style=MAIN_STYLE,
+)
+
+app.layout = html.Div(
+    [
+        dcc.Location(id="url"),
+        html.Div([sidebar, main_column], style=PAGE_STYLE),
+    ]
+)
 
 @app.callback(
     [Output("page-content", "children"), Output("ann-models", "children")],
@@ -408,15 +475,15 @@ app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
         State("row_3_Right_Phase", "value"),
         State("row_4_Right_Transverse_organization", "value"),
         State("row_4_Right_Surface_texture", "value"),
-        State("row_4_Right_Microposity", "value"),
-        State("row_4_Right_Macroporositty", "value"),
+        State("row_4_Right_Microporosity", "value"),
+        State("row_4_Right_Macroporosity", "value"),
         State("row_4_Right_Apical_changes", "value"),
         State("row_5_Right_Phase_Suchey", "value"),
         State("row_5_Right_Phase", "value"),
         State("row_6_Right_Transverse_organization", "value"),
         State("row_6_Right_Surface_texture", "value"),
-        State("row_6_Right_Microposity", "value"),
-        State("row_6_Right_Macroporositty", "value"),
+        State("row_6_Right_Microporosity", "value"),
+        State("row_6_Right_Macroporosity", "value"),
         State("row_6_Right_Apical_changes", "value"),
         State("row_6_Right_Phase_Suchey", "value"),
         State("row_7_Right_Phase_Suchey", "value"),
@@ -433,8 +500,8 @@ app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
         State("row_7_Right_Phase", "value"),
         State("row_7_Right_Transverse_organization", "value"),
         State("row_7_Right_Surface_texture", "value"),
-        State("row_7_Right_Microposity", "value"),
-        State("row_7_Right_Macroporositty", "value"),
+        State("row_7_Right_Microporosity", "value"),
+        State("row_7_Right_Macroporosity", "value"),
         State("row_7_Right_Apical_changes", "value"),
     ],
 )
