@@ -14,17 +14,10 @@
  + 02/15/23 (cc): Remove tensorflow 
 """
 
-import time
 import dash
 import dash_bootstrap_components as dbc
 import pickle
-import numpy as np
-import plotly.graph_objs as go
 from dash import Input, Output, State, dcc, html
-# import tensorflow as tf
-# from tensorflow import keras
-# from keras.models import load_model
-#import xgboost
 import re
 
 
@@ -704,32 +697,18 @@ def calculate_y_vectors(model, X):
         pickle.load(
             open("".join(["./models/ann_classification_right_",model,".dat"]), "rb"))
 
-        
-        
-    # load_model(
-    #         "".join(["./models/ann_classification_right_",model,".h5"]))
-
     regression_model_sklearn = \
         pickle.load(
             open("".join(["./models/regression_right_",model,".dat"]), "rb"))
     regression_model_tf = \
         pickle.load(
             open("".join(["./models/ann_regression_right_",model,".dat"]), "rb"))
-        # load_model(
-        #     "".join(["./models/ann_regression_right_",model,".h5"]))
 
     y_classification_sklearn = classification_model_sklearn.predict(X)
-
     y_proba_sklearn = classification_model_sklearn.predict_proba(X)
 
-    
-
     y_classification_tf = classification_model_tf.predict(X)
-
     y_proba_tf = classification_model_tf.predict_proba(X)
-
-     
-    #y_classification_tf = np.argmax(y_classification_tf, axis=1)
 
     y_regression_sklearn = regression_model_sklearn.predict(X)
     y_regression_tf = regression_model_tf.predict(X)
@@ -745,8 +724,6 @@ def regression_model_info_extractor(variable_set):
     skelearn_file = "".join(["./models/regression_right_",variable_set,".txt"])
 
     tf_file = "".join(["./models/ann_regression_right_",variable_set,".txt"])
-
-    #print(skelearn_file)
 
     best_classifier = ""
     r2_test, r2_train, rmse, mae = 0.0, 0.0, 0.0, 0.0
@@ -767,27 +744,21 @@ def regression_model_info_extractor(variable_set):
                 if match:
                     extracted_text = match.group(1)
                     best_classifier = extracted_text
-                    #print(best_classifier)
-                # else:
-                #     #print("No match found")
 
             if re.search("(test)", line):
                 matches = re.findall(r"\d+\.\d+", line)
                 numbers = [float(match) for match in matches]
                 r2_test, r2_train = numbers
-                #print(r2_test, r2_train)
 
             if re.search("RMSE", line):
                 matches = re.findall(r"\d+\.\d+", line)
                 numbers = [float(match) for match in matches]
                 rmse = numbers[0]
-                #print(rmse)
 
             if re.search("MAE", line):
                 matches = re.findall(r"\d+\.\d+", line)
                 numbers = [float(match) for match in matches]
                 mae = numbers[0]
-                #print(mae)
 
     with open(tf_file, 'r') as f:
         contents = f.read()
@@ -798,11 +769,9 @@ def regression_model_info_extractor(variable_set):
                 matches = re.findall(r"\d+\.\d+", line)
                 numbers = [float(match) for match in matches]
                 rmse_tf = numbers[0]
-                #print(rmse_tf)
-    
+
     return rmse, rmse_tf
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True, host="0.0.0.0",port="8050", use_reloader=True)
-    #app.run_server(debug=True)
+    app.run_server(debug=True, host="0.0.0.0", port="8050", use_reloader=True)
