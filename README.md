@@ -1,11 +1,12 @@
-> **Live app (primary):** https://ageest.onrender.com/
-> The original CyI-hosted instance (http://ageest.hpcf.cyi.ac.cy/) is currently experiencing downtime. Use the Render link above.
+> **Live app (primary):** http://ageest.hpcf.cyi.ac.cy/
+> A mirror is also deployed on Render: https://ageest.onrender.com/
 
 # AgeEst
 
 Dash/Plotly web application for deploying machine learning models for skeletal age-at-death estimation.
 
-- Live demo: https://ageest.onrender.com/
+- Live demo (primary, CyI): http://ageest.hpcf.cyi.ac.cy/
+- Live demo (Render mirror): https://ageest.onrender.com/
 - Paper (FSI: Reports, 2023): https://doi.org/10.1016/j.fsir.2023.100317
 - Model-training notebooks: https://github.com/cconsta1/age-estimation-notebook
 
@@ -125,6 +126,22 @@ docker run --rm -p 8050:8050 ageest
 Open `http://127.0.0.1:8050/`.
 
 The container uses Gunicorn to serve the Dash app via `app:server`.
+
+### Apple Silicon (M1/M2/M3/M4) and other arm64 hosts
+
+On Apple Silicon Macs, Docker builds for `linux/arm64` by default. The pinned
+dependencies here (and most PaaS targets, including Render) expect `linux/amd64`,
+so you must specify the platform explicitly:
+
+```bash
+docker build --platform linux/amd64 -t ageest .
+docker run --rm --platform linux/amd64 -p 8050:8050 ageest
+```
+
+This runs the image under emulation (Rosetta / QEMU), which is slower to build and
+start but produces an image that matches the deployment target. If you only want to
+run the app locally on Apple Silicon and do not need an amd64 image, you can omit
+`--platform` and build natively for arm64.
 
 ## Deployment notes (Render / Gunicorn)
 
